@@ -6,6 +6,10 @@ describe(`it should render info correctly`, () => {
   render(<Home />);
 
   it(`should render main message`, () => {
-    expect(screen.getByRole(`link`, { name: `Handy POS!` })).toBeVisible();
+    expect(
+      screen.getByRole(`link`, {
+        name: `Next.js + Tailwind example`,
+      }),
+    ).toBeVisible();
   });
 });

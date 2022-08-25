@@ -13,7 +13,7 @@ const Home: NextPage = () => {
         <h1 className="text-6xl font-bold">
           Welcome to{` `}
           <a className="text-blue-600" href="https://nextjs.org">
-            Handy POS!
+            Next.js + Tailwind example
           </a>
         </h1>
       </main>
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by <strong>TailSoft</strong>
+          Powered by <strong>Example</strong>
         </a>
       </footer>
     </div>
