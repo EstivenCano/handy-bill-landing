@@ -19,6 +19,14 @@ const Home: NextPage = () => {
           height={500}
           alt="handy-bill-logo"
         />
+        <a
+          href="/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary-main-d2"
+        >
+          Hello
+        </a>
       </main>
 
       <ThemeSwitcher className="mt-12" />

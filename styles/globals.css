@@ -8,11 +8,21 @@ body {
 
 @layer base {
   :root {
-    --accent: 37 99 235;
+    --accent: 235 183 61;
     --content: 0 0 0;
     --background: 255 255 255;
     --foreground: 230 230 230;
     --edge: 200 200 200;
+    --primary-main: 99 201 158;
+    --primary-main-l1: 130 211 177;
+    --primary-main-l2: 161 222 196;
+    --primary-main-l3: 192 233 216;
+    --primary-main-d1: 61 178 129;
+    --primary-main-d2: 46 133 96;
+    --primary-main-d3: 30 89 64;
+  }
+  html {
+    font-family: Urbanist, system-ui, sans-serif;
   }
 }
 
