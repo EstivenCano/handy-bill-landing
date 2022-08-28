@@ -2,6 +2,8 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 
+import ThemeSwitcher from '../components/ThemeSwitcher';
+
 const Home: NextPage = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
@@ -18,6 +20,8 @@ const Home: NextPage = () => {
           alt="handy-bill-logo"
         />
       </main>
+
+      <ThemeSwitcher className="mt-12" />
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
         <a

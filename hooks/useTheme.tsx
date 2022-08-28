@@ -34,7 +34,7 @@ export const useThemeContext = () => {
 };
 
 type Props = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export const ThemeProvider: FC<Props> = ({ children }) => {
