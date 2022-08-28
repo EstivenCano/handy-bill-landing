@@ -1,21 +1,22 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
 
 const Home: NextPage = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
-        <title>Handy POS</title>
+        <title>Handy Bill</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{` `}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js + Tailwind example
-          </a>
-        </h1>
+        <Image
+          src="/handyBill.svg"
+          width={500}
+          height={500}
+          alt="handy-bill-logo"
+        />
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
@@ -25,7 +26,7 @@ const Home: NextPage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by <strong>Example</strong>
+          Powered by <strong>TailSoft</strong>
         </a>
       </footer>
     </div>
