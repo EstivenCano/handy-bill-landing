@@ -1,4 +1,9 @@
 {
+  "author": {
+    "name": "Estiven Cano"
+  },
+  "name": "handy-bill",
+  "displayName": "Handy Bill",
   "private": true,
   "scripts": {
     "dev": "next dev",
