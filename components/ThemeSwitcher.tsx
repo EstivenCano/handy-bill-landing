@@ -18,7 +18,6 @@ const ThemeSwitcher: FC<Props> = ({ className }) => {
     >
       <option value="light">Light</option>
       <option value="dark">Dark</option>
-      <option value="custom">Custom</option>
     </select>
   );
 };

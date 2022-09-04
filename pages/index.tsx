@@ -3,8 +3,11 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 import ThemeSwitcher from '../components/ThemeSwitcher';
+import { useThemeContext } from '../hooks/useTheme';
 
 const Home: NextPage = () => {
+  const { theme } = useThemeContext();
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -13,17 +16,27 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <Image
-          src="/handyBill.svg"
-          width={500}
-          height={500}
-          alt="handy-bill-logo"
-        />
+        {theme === 'light' ? (
+          <Image
+            src="/handyBill.svg"
+            width={500}
+            height={500}
+            alt="handy-bill-logo"
+          />
+        ) : (
+          <Image
+            src="/handyBillDark.svg"
+            width={500}
+            height={500}
+            alt="handy-bill--dark-logo"
+          />
+        )}
+
         <a
           href="/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary-main-d2"
+          className="text-primary"
         >
           Hello
         </a>
