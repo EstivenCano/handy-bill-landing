@@ -7,9 +7,11 @@ import {
   useState,
 } from 'react';
 
+import type { Theme } from '../models/Theme';
+
 type DefaultContext = {
-  theme: string;
-  setTheme: (value: string) => void;
+  theme: Theme;
+  setTheme: (value: Theme) => void;
 };
 
 export const THEME_CONTEXT_DEFAULT: DefaultContext = {
@@ -38,9 +40,9 @@ type Props = {
 };
 
 export const ThemeProvider: FC<Props> = ({ children }) => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState<Theme>('light');
 
-  const handleSetTheme = (value: string) => {
+  const handleSetTheme = (value: Theme) => {
     setTheme(value);
   };
 

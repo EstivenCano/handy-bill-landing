@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import { match } from 'ts-pattern';
 
 import ThemeSwitcher from '../components/ThemeSwitcher';
 import { useThemeContext } from '../hooks/useTheme';
@@ -16,21 +17,24 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        {theme === 'light' ? (
-          <Image
-            src="/handyBill.svg"
-            width={500}
-            height={500}
-            alt="handy-bill-logo"
-          />
-        ) : (
-          <Image
-            src="/handyBillDark.svg"
-            width={500}
-            height={500}
-            alt="handy-bill--dark-logo"
-          />
-        )}
+        {match(theme)
+          .with('light', () => (
+            <Image
+              src="/handyBill.svg"
+              width={500}
+              height={500}
+              alt="handy-bill-logo"
+            />
+          ))
+          .with('dark', () => (
+            <Image
+              src="/handyBillDark.svg"
+              width={500}
+              height={500}
+              alt="handy-bill--dark-logo"
+            />
+          ))
+          .exhaustive()}
 
         <a
           href="/"
