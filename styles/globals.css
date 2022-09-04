@@ -9,7 +9,7 @@ body {
 @layer base {
   :root {
     --accent: 235 183 61;
-    --content: 0 0 0;
+    --content: 24 24 27;
     --background: 229 226 226;
     --foreground: 230 230 230;
     --edge: 200 200 200;
