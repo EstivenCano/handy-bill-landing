@@ -1,4 +1,6 @@
-import type { NextPage } from 'next';
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import Image from 'next/image';
 import { match } from 'ts-pattern';
@@ -6,8 +8,22 @@ import { match } from 'ts-pattern';
 import ThemeSwitcher from '../components/ThemeSwitcher';
 import { useThemeContext } from '../hooks/useTheme';
 
-const Home: NextPage = () => {
+export const getStaticProps: GetStaticProps = async ({
+  locale,
+  defaultLocale,
+}) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || defaultLocale!, ['common'])),
+    },
+  };
+};
+
+const Home: NextPage = ({
+  locale,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { theme } = useThemeContext();
+  const { t } = useTranslation();
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
@@ -16,10 +32,11 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+        <h1>{locale}</h1>
         {match(theme)
           .with('light', () => (
             <Image
-              src="/handyBill.svg"
+              src="/images/handyBill.svg"
               width={500}
               height={500}
               alt="handy-bill-logo"
@@ -27,21 +44,20 @@ const Home: NextPage = () => {
           ))
           .with('dark', () => (
             <Image
-              src="/handyBillDark.svg"
+              src="/images/handyBillDark.svg"
               width={500}
               height={500}
               alt="handy-bill--dark-logo"
             />
           ))
           .exhaustive()}
-
         <a
           href="/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-primary"
         >
-          Hello
+          {t('common:pointOfSales')}
         </a>
       </main>
 
