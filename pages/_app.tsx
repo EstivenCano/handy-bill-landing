@@ -1,3 +1,4 @@
+import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 
 import ThemeProvider from '../hooks/useTheme';
@@ -11,4 +12,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
