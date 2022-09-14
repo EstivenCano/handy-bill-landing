@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next';
 import type { FC } from 'react';
 
 import { useThemeContext } from '../hooks/useTheme';
@@ -9,6 +10,7 @@ type Props = {
 
 const ThemeSwitcher: FC<Props> = ({ className }) => {
   const { setTheme } = useThemeContext();
+  const { t } = useTranslation();
 
   return (
     <select
@@ -17,8 +19,8 @@ const ThemeSwitcher: FC<Props> = ({ className }) => {
         className ? className : ''
       }`}
     >
-      <option value="light">Light</option>
-      <option value="dark">Dark</option>
+      <option value="light">{t('common:light')}</option>
+      <option value="dark">{t('common:dark')}</option>
     </select>
   );
 };

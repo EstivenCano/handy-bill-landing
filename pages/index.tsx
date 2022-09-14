@@ -1,4 +1,6 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import Image from 'next/image';
 import { match } from 'ts-pattern';
@@ -6,16 +8,22 @@ import { match } from 'ts-pattern';
 import ThemeSwitcher from '../components/ThemeSwitcher';
 import { useThemeContext } from '../hooks/useTheme';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({
+  locale,
+  defaultLocale,
+}) => {
   return {
     props: {
-      locale,
+      ...(await serverSideTranslations(locale || defaultLocale!, ['common'])),
     },
   };
 };
 
-const Home = ({ locale }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home: NextPage = ({
+  locale,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { theme } = useThemeContext();
+  const { t } = useTranslation();
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
@@ -43,14 +51,13 @@ const Home = ({ locale }: InferGetStaticPropsType<typeof getStaticProps>) => {
             />
           ))
           .exhaustive()}
-
         <a
           href="/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-primary"
         >
-          Hello
+          {t('common:pointOfSales')}
         </a>
       </main>
 
