@@ -9,7 +9,7 @@ type Props = {
 };
 
 const ThemeSwitcher: FC<Props> = ({ className }) => {
-  const { setTheme } = useThemeContext();
+  const { setTheme, theme } = useThemeContext();
   const { t } = useTranslation();
 
   return (
@@ -18,6 +18,7 @@ const ThemeSwitcher: FC<Props> = ({ className }) => {
       className={`text-content bg-foreground border border-edge p-4 w-72 rounded-lg ${
         className ? className : ''
       }`}
+      value={theme}
     >
       <option value="light">{t('common:light')}</option>
       <option value="dark">{t('common:dark')}</option>
