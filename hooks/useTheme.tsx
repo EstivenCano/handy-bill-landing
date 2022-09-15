@@ -55,6 +55,9 @@ export const ThemeProvider: FC<Props> = ({ children }) => {
   //Listen any changes on prefers-color-scheme property to change the current theme
   useEffect(() => {
     const darkPreference = window.matchMedia('(prefers-color-scheme: dark)');
+    if (darkPreference.matches) {
+      handleSetTheme('dark');
+    }
     darkPreference.addEventListener('change', mqListener);
     return () => darkPreference.removeEventListener('change', mqListener);
   }, [mqListener]);
