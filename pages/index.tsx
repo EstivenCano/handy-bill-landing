@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { match } from 'ts-pattern';
 
+import { Navbar } from '../components/Navbar';
 import ThemeSwitcher from '../components/ThemeSwitcher';
 import { useThemeContext } from '../hooks/useTheme';
 
@@ -26,11 +27,11 @@ const Home: NextPage = ({
   const { t } = useTranslation();
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       <Head>
         <title>Handy Bill</title>
       </Head>
-
+      <Navbar />
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1>{locale}</h1>
         {match(theme)
