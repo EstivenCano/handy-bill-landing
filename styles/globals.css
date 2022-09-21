@@ -11,7 +11,7 @@ body {
     --accent: 235 183 61;
     --content: 24 24 27;
     --background: 229 226 226;
-    --foreground: 230 230 230;
+    --foreground: 209 209 209;
     --edge: 200 200 200;
     --primary-main: 99 201 158;
     --primary-main-l1: 130 211 177;
@@ -21,9 +21,34 @@ body {
     --primary-main-d2: 46 133 96;
     --primary-main-d3: 30 89 64;
   }
+
   html {
     font-family: Urbanist, system-ui, sans-serif;
   }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.primary.700') theme('colors.foreground');
+}
+
+*::-webkit-scrollbar {
+  width: 8px; /* vertical scrollbar */
+  height: 8px; /* horizontal scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+  background: theme('colors.foreground');
+}
+
+*::-webkit-scrollbar-thumb {
+  background: theme('colors.primary.700');
+  border-radius: 10px;
+  border: 1px solid theme('colors.foreground');
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.primary.600');
 }
 
 .theme-dark {
