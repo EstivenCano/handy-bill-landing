@@ -9,12 +9,12 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background-color: theme('colors.primary.700');
   transform: scaleY(0);
   transition: transform 0.5s ease;
 }
 
 .nav-item::before {
+  background-color: theme('colors.primary.700');
   left: -8px;
   transform-origin: center top;
 }
@@ -25,6 +25,7 @@
 }
 
 .nav-item::after {
+  background-color: theme('colors.content');
   right: -8px;
   transform-origin: center bottom;
 }
