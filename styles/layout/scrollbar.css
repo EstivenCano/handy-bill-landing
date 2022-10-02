@@ -1,0 +1,23 @@
+* {
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.primary.700') theme('colors.foreground');
+}
+
+*::-webkit-scrollbar {
+  width: 8px; /* vertical scrollbar */
+  height: 8px; /* horizontal scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+  background: theme('colors.foreground');
+}
+
+*::-webkit-scrollbar-thumb {
+  background: theme('colors.primary.700');
+  border-radius: 10px;
+  border: 1px solid theme('colors.foreground');
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.primary.600');
+}
