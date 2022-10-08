@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { match } from 'ts-pattern';
 
 import { Navbar } from '../components/Navbar';
-import ThemeSwitcher from '../components/ThemeSwitcher';
 import { useThemeContext } from '../hooks/useTheme';
 
 export const getStaticProps: GetStaticProps = async ({
@@ -61,8 +60,6 @@ const Home: NextPage = ({
           {t('common:pointOfSales')}
         </a>
       </main>
-
-      <ThemeSwitcher className="mt-12" />
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
         <a
