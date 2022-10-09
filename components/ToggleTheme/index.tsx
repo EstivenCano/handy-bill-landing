@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useTranslation } from 'next-i18next';
 import { match } from 'ts-pattern';
 
 import { useThemeContext } from '../../hooks/useTheme';
@@ -8,7 +7,6 @@ import { SunIcon } from './SunIcon';
 
 export const ToggleTheme = () => {
   const { setTheme, theme } = useThemeContext();
-  const { t } = useTranslation();
   const isDark = theme === 'dark';
 
   const handleToggle = () => {
@@ -17,7 +15,7 @@ export const ToggleTheme = () => {
 
   return (
     <div
-      className={`w-14 h-9 rounded-full bg-foreground/90 flex p-1 cursor-pointer`}
+      className={`w-14 h-9 mt-0 md:mt-2 rounded-full bg-foreground/90 flex p-1 cursor-pointer`}
       onClick={handleToggle}
     >
       <motion.div

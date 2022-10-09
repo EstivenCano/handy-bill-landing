@@ -1,7 +1,7 @@
-import { motion, useCycle } from 'framer-motion';
+import { motion } from 'framer-motion';
 import * as React from 'react';
-import { useRef } from 'react';
 
+import { useComponentVisible } from '../../../hooks/useComponentVisible';
 import { useDimensions } from '../../../hooks/useDimensions';
 import { NavButton } from './NavButton';
 import { NavList } from './NavList';
@@ -27,21 +27,21 @@ const sidebar = {
 };
 
 export const NavMenu = () => {
-  const [isOpen, toggleOpen] = useCycle(false, true);
-  const containerRef = useRef(null);
-  const { height } = useDimensions(containerRef);
+  const { isComponentVisible, ref, setIsComponentVisible } =
+    useComponentVisible(false);
+  const { height } = useDimensions(ref);
 
   const handleToggle = () => {
-    toggleOpen();
+    setIsComponentVisible((prevState) => !prevState);
   };
 
   return (
     <motion.div
       className="w-32 z-10 md:hidden"
       initial={false}
-      animate={isOpen ? 'open' : 'closed'}
+      animate={isComponentVisible ? 'open' : 'closed'}
       custom={height}
-      ref={containerRef}
+      ref={ref}
     >
       <motion.div
         className="h-72 w-32 bg-foreground rounded-br-2xl"

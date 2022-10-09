@@ -32,25 +32,6 @@ const Home: NextPage = ({
       </Head>
       <Navbar />
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1>{locale}</h1>
-        {match(theme)
-          .with('light', () => (
-            <Image
-              src="/images/handyBill.svg"
-              width={500}
-              height={500}
-              alt="handy-bill-logo"
-            />
-          ))
-          .with('dark', () => (
-            <Image
-              src="/images/handyBillDark.svg"
-              width={500}
-              height={500}
-              alt="handy-bill--dark-logo"
-            />
-          ))
-          .exhaustive()}
         <a
           href="/"
           target="_blank"
