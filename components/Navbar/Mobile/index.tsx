@@ -16,7 +16,7 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: 'circle(20px at 90px 30px)',
+    clipPath: 'circle(18px at 29px 18px)',
     transition: {
       delay: 0.5,
       type: 'spring',
@@ -37,14 +37,14 @@ export const NavMenu = () => {
 
   return (
     <motion.div
-      className="absolute top-0 right-0 bottom-0 w-32 z-10 md:hidden"
+      className="w-32 z-10 md:hidden"
       initial={false}
       animate={isOpen ? 'open' : 'closed'}
       custom={height}
       ref={containerRef}
     >
       <motion.div
-        className="absolute top-0 right-0 h-72 w-32 bg-foreground rounded-bl-2xl"
+        className="h-72 w-32 bg-foreground rounded-br-2xl"
         variants={sidebar}
       />
       <NavList />

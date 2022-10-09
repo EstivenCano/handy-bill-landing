@@ -5,7 +5,7 @@ const Path = (props: SVGMotionProps<SVGPathElement>) => (
   <motion.path
     className="stroke-content"
     fill="content"
-    strokeWidth="3"
+    strokeWidth={1.5}
     strokeLinecap="round"
     {...props}
   />
@@ -13,10 +13,11 @@ const Path = (props: SVGMotionProps<SVGPathElement>) => (
 
 export const NavButton: FC<{ toggle: () => void }> = ({ toggle }) => (
   <button
-    className="outline-none border-none cursor-pointer absolute top-5 right-7 w-5 h-5 border-r-2 bg-transparent"
+    aria-label="main-menu"
+    className="outline-none border-none cursor-pointer absolute top-3.5 left-7 w-5 h-5 border-r-2 bg-transparent"
     onClick={toggle}
   >
-    <svg width="18" height="18" viewBox="0 0 20 20">
+    <svg width="18" height="24" viewBox="0 0 20 20">
       <Path
         variants={{
           closed: { d: 'M 2 2.5 L 20 2.5' },

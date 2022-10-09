@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export const NavbarBranding = () => {
   return (
-    <div className="flex gap-2 items-center">
+    <div className="hidden md:flex gap-2 items-center">
       <Image
         src="/images/favicon.ico"
         width={45}

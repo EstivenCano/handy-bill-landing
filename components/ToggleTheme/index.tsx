@@ -17,12 +17,11 @@ export const ToggleTheme = () => {
 
   return (
     <div
-      aria-label={t(`common:${theme}`) + 'theme'}
       className={`w-14 h-9 rounded-full bg-foreground/90 flex p-1 cursor-pointer`}
       onClick={handleToggle}
     >
       <motion.div
-        className="w-7 h-7 rounded-full p-1 bg-primary-600"
+        className="w-7 h-7 rounded-full p-1 bg-primary-600 md:mr-8"
         animate={{
           x: isDark ? 20 : 0,
         }}
