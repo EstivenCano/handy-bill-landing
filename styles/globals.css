@@ -28,6 +28,9 @@ body {
   }
 
   @import './layout/scrollbar.css';
+}
+
+@layer components {
   @import './navigation/navItem.css';
 }
 
