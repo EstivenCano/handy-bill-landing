@@ -10,8 +10,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch",
+    "test:watch": "jest --watch",
     "test:ci": "jest --ci",
+    "test": "jest",
     "prepare": "husky install",
     "pre-commit": "npm run lint"
   },
