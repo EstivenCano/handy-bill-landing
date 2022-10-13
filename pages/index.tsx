@@ -2,11 +2,8 @@ import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
-import Image from 'next/image';
-import { match } from 'ts-pattern';
 
 import { Navbar } from '../components/Navbar';
-import { useThemeContext } from '../hooks/useTheme';
 
 export const getStaticProps: GetStaticProps = async ({
   locale,
@@ -22,7 +19,6 @@ export const getStaticProps: GetStaticProps = async ({
 const Home: NextPage = ({
   locale,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { theme } = useThemeContext();
   const { t } = useTranslation();
 
   return (

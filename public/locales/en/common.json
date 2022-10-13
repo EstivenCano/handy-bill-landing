@@ -1,5 +1,7 @@
 {
     "pointOfSales": "Point of sales",
+    "activateDark": "Activate dark mode",
+    "activateLight": "Activate light mode",
     "dark": "Dark",
     "light": "Light"
 }
