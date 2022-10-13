@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 
 import { NavMenu } from '.';
 
@@ -13,21 +12,11 @@ describe('NavMenu functionality', () => {
     ).toBeVisible();
   });
 
-  test('Should open the menu when user clicks on it', async () => {
+  test('Should render list of NavItems', () => {
     render(<NavMenu />);
 
-    expect(screen.queryByRole('link', { name: 'home' })).toBeNull();
+    expect(screen.getByRole('list')).toBeVisible();
 
-    await userEvent.click(
-      screen.getByRole('button', {
-        name: /main\-menu/i,
-      }),
-    );
-
-    expect(
-      screen.getByRole('link', {
-        name: /home/i,
-      }),
-    ).toBeVisible();
+    expect(screen.getAllByRole('link').length).toBe(5);
   });
 });

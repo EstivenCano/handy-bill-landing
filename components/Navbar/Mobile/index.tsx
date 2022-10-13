@@ -47,7 +47,7 @@ export const NavMenu = () => {
         className="h-72 w-32 bg-foreground rounded-br-2xl"
         variants={sidebar}
       />
-      {isComponentVisible && <NavList />}
+      <NavList />
       <NavButton toggle={handleToggle} />
     </motion.div>
   );
