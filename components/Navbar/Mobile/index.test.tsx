@@ -1,12 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { NavButton } from './NavButton';
+import { NavMenu } from '.';
 
-describe('NavButton functionality', () => {
-  const mockToggle = jest.fn();
+describe('NavMenu functionality', () => {
   test('Should render content correctly', () => {
-    render(<NavButton toggle={mockToggle} />);
+    render(<NavMenu />);
     expect(
       screen.getByRole('button', {
         name: /main\-menu/i,
@@ -14,13 +13,21 @@ describe('NavButton functionality', () => {
     ).toBeVisible();
   });
 
-  test('Should call toggle function when onClick event is activate', async () => {
-    render(<NavButton toggle={mockToggle} />);
+  test('Should open the menu when user clicks on it', async () => {
+    render(<NavMenu />);
+
+    expect(screen.queryByRole('link', { name: 'home' })).toBeNull();
+
     await userEvent.click(
       screen.getByRole('button', {
         name: /main\-menu/i,
       }),
     );
-    expect(mockToggle).toBeCalledTimes(1);
+
+    expect(
+      screen.getByRole('link', {
+        name: /home/i,
+      }),
+    ).toBeVisible();
   });
 });
