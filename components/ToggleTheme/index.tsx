@@ -1,15 +1,16 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
-import { useState } from 'react';
 import { match } from 'ts-pattern';
 
+import { useComponentVisible } from '../../hooks/useComponentVisible';
 import { useThemeContext } from '../../hooks/useTheme';
 import { MoonIcon } from './MoonIcon';
 import { SunIcon } from './SunIcon';
 
 export const ToggleTheme = () => {
   const { t } = useTranslation();
-  const [showTooltip, setShowTooltip] = useState(false);
+  const { ref, isComponentVisible, setIsComponentVisible } =
+    useComponentVisible(false);
   const { setTheme, theme } = useThemeContext();
   const isDark = theme === 'dark';
 
@@ -26,8 +27,8 @@ export const ToggleTheme = () => {
       >
         <motion.div
           className="w-7 h-7 rounded-full p-1 bg-primary-600 md:mr-8"
-          onMouseOver={() => setShowTooltip(() => true)}
-          onMouseOut={() => setShowTooltip(() => false)}
+          onMouseOver={() => setIsComponentVisible(() => true)}
+          onMouseOut={() => setIsComponentVisible(() => false)}
           animate={{
             x: isDark ? 20 : 0,
           }}
@@ -37,18 +38,18 @@ export const ToggleTheme = () => {
             .with('light', () => <SunIcon />)
             .exhaustive()}
         </motion.div>
-        <div
+        <span
+          ref={ref}
           id="toggle-theme-tooltip"
           role="tooltip"
-          className={`absolute top-16 right-2 whitespace-nowrap z-10 py-2 px-2 w-fit text-xs text-content bg-foreground rounded-lg shadow-sm ${
-            !showTooltip && 'opacity-0'
-          } transition-opacity duration-300 tooltip `}
+          className={`top-16 right-2 ${
+            !isComponentVisible && 'opacity-0'
+          } tooltip`}
         >
           {match(isDark)
             .with(true, () => t('common:activateLight'))
             .otherwise(() => t('common:activateDark'))}
-          <div className="tooltip-arrow" data-popper-arrow />
-        </div>
+        </span>
       </div>
     </>
   );
