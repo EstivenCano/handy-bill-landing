@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 export const SunIcon = () => {
   return (
     <motion.svg
+      data-testid="sunIcon"
       xmlns="http://www.w3.org/2000/svg"
+      role="img"
       fill="none"
       viewBox="0 0 30 30"
       width="25"
