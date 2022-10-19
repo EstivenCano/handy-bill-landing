@@ -3,7 +3,10 @@ import { motion } from 'framer-motion';
 export const MoonIcon = () => {
   return (
     <motion.svg
+      data-testid="moonIcon"
       xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      name="moonIcon"
       fill="none"
       viewBox="0 0 30 30"
       width="25"
