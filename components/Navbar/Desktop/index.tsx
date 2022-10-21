@@ -7,7 +7,10 @@ export const NavDesktop = () => {
   return (
     <>
       <NavbarBranding />
-      <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+      <div
+        className="ml-auto hidden w-full md:block md:w-auto"
+        id="navbar-default"
+      >
         <NavList />
       </div>
     </>

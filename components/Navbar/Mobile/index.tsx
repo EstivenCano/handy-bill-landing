@@ -37,7 +37,7 @@ export const NavMenu = () => {
 
   return (
     <motion.div
-      className="w-32 z-10 md:hidden"
+      className="absolute w-32 z-10 md:hidden"
       initial={false}
       animate={isComponentVisible ? 'open' : 'closed'}
       custom={height}

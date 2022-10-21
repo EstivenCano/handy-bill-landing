@@ -22,7 +22,7 @@ export const ToggleTheme = () => {
     <>
       <div
         data-tooltip-target="toggle-theme-tooltip"
-        className={`w-14 h-9 mt-0 md:mt-2 rounded-full bg-foreground/90 flex p-1 cursor-pointer`}
+        className={`ml-auto w-14 h-9 mt-0 md:mt-2 rounded-full bg-foreground/90 flex p-1 cursor-pointer`}
         onClick={handleToggle}
       >
         <motion.div

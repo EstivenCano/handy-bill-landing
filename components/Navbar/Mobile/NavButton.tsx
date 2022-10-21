@@ -14,7 +14,7 @@ const Path = (props: SVGMotionProps<SVGPathElement>) => (
 export const NavButton: FC<{ toggle: () => void }> = ({ toggle }) => (
   <button
     aria-label="main-menu"
-    className="outline-none border-none cursor-pointer absolute top-3.5 left-7 w-5 h-5 border-r-2 bg-transparent"
+    className="outline-none border-none cursor-pointer absolute top-1.5 left-5 w-5 h-5 border-r-2 bg-transparent"
     onClick={toggle}
   >
     <svg width="18" height="24" viewBox="0 0 20 20">

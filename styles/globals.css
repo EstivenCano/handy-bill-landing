@@ -26,13 +26,13 @@ body {
   html {
     font-family: Urbanist, system-ui, sans-serif;
   }
-
   @import './layout/scrollbar.css';
 }
 
 @layer components {
   @import './navigation/navItem.css';
   @import './display/tooltip.css';
+  @import './layout/logo.css';
 }
 
 .theme-dark {
