@@ -27,7 +27,7 @@ const Home: NextPage = ({
         <title>Handy Bill</title>
       </Head>
       <Navbar />
-      <main className="flex w-full min-h-screen overflow-hidden flex-col md:flex-row columns-2 justify-around md:px-10 py-10">
+      <main className="flex w-full min-h-screen overflow-hidden flex-col md:flex-row columns-2 justify- items-center md:px-10 py-10">
         <MainLogo />
         <div className="flex flex-1 justify-center items-center">
           <a

@@ -13,7 +13,7 @@ export const MainLogo = () => {
         initial={{ opacity: 0, rotate: 0 }}
         animate={{ opacity: 1, rotate: rotation }}
         transition={{ duration: 2, type: 'spring' }}
-        className="flex relative flex-1"
+        className="flex relative md:w-96 md:h-96 w-80 h-80 shadow-2xl shadow-primary/20 rounded-full"
       >
         <m.div
           initial={{ rotate: -45 }}
