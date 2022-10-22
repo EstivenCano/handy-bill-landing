@@ -40,7 +40,7 @@ const Home: NextPage = ({
           </a>
         </div>
       </main>
-
+      <main className="flex w-full min-h-screen overflow-hidden flex-col md:flex-row columns-2 justify-around md:px-10 py-10"></main>
       <footer className="flex h-24 w-full items-center justify-center border-t">
         <a
           className="flex items-center justify-center gap-2"
