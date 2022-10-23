@@ -1,5 +1,5 @@
+import Link from 'next/link';
 import React, { FC } from 'react';
-import Link from 'next/link'
 
 interface Props {
   name: string;
@@ -8,7 +8,10 @@ interface Props {
 
 export const NavItem: FC<Props> = ({ name, path }) => {
   return (
-    <li key={name} className="nav-item font-bold hover:scale-105">
+    <li
+      key={name}
+      className="nav-item font-bold hover:scale-105 transition-transform ease-linear"
+    >
       <Link href={path} aria-current="page">
         {name}
       </Link>

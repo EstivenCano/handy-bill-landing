@@ -1,5 +1,6 @@
 import { MainLogo } from '@/components/MainLogo';
 import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
 
 export const HomePage = () => {
   const { t } = useTranslation();
@@ -18,11 +19,13 @@ export const HomePage = () => {
         <h2 className="text-primary-600 font-bold text-xl md:text-2xl mt-3">
           {t('common:pointOfSales')}
         </h2>
-        <p className="text-content text-center max-w-xl text-md md:text-xl py-10 px-5">
+        <p className="text-content text-center max-w-lg text-md md:text-xl py-10 px-5">
           {t('common:handyDescription')}
         </p>
-        <button className="bg-primary-600 text-white py-1 px-3 rounded-md">
-          Know more
+        <button className="button-outlined">
+          <Link about="Go to about" href="/#about">
+            Know more
+          </Link>
         </button>
       </div>
     </section>

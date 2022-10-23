@@ -31,6 +31,7 @@ const Home: NextPage = ({
         <title>
           {`${t('common:handyBill')} - ${t('common:pointOfSales')}`}
         </title>
+        <meta name="description" content={`${t('common:handyDescription')}`} />
       </Head>
       <Navbar />
       <main>
