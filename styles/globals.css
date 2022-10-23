@@ -34,6 +34,7 @@ body {
   @import './navigation/navItem.css';
   @import './display/tooltip.css';
   @import './layout/logo.css';
+  @import './inputs/button.css';
 }
 
 .theme-dark {
