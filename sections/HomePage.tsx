@@ -9,7 +9,9 @@ export const HomePage = () => {
       id="home"
       className="flex w-full min-h-screen overflow-hidden flex-col md:flex-row items-center md:pl-10 py-10 bg-gradient-to-br from-background via-background to-primary-700/40"
     >
-      <MainLogo />
+      <div className="flex flex-0 lg:flex-1 justify-center">
+        <MainLogo />
+      </div>
       <div className="flex flex-1 flex-col justify-center items-center py-2 pl-1">
         <h1 className="text-4xl md:text-6xl font-bold mb-3">
           {t('common:handyBill')}
