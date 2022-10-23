@@ -26,7 +26,7 @@ export const HomePage = () => {
         </p>
         <button className="button-outlined">
           <Link about="Go to about" href="/#about">
-            Know more
+            {t('common:moreInfo')}
           </Link>
         </button>
       </div>
