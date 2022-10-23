@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-import links from '../links.json';
+import { useLinks } from '../useLinks';
 import { NavItem } from './NavItem';
 
 const variants = {
@@ -13,6 +13,7 @@ const variants = {
 };
 
 export const NavList = () => {
+  const links = useLinks();
   return (
     <motion.ul variants={variants} className="p-5 absolute top-8 w-10">
       {links.map((link) => (

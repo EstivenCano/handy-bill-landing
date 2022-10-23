@@ -1,10 +1,13 @@
-import { MainLogo } from '@/components/MainLogo';
 import { Navbar } from '@/components/Navbar';
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
+import { About } from 'sections/About';
+import { Contact } from 'sections/Contact';
 import { HomePage } from 'sections/HomePage';
+import { Pricing } from 'sections/Pricing';
+import { Services } from 'sections/Services';
 
 export const getStaticProps: GetStaticProps = async ({
   locale,
@@ -32,10 +35,10 @@ const Home: NextPage = ({
       <Navbar />
       <main>
         <HomePage />
-        <section
-          id="about"
-          className="flex w-full min-h-screen overflow-hidden flex-col md:flex-row columns-2 justify-around md:px-10 py-10"
-        ></section>
+        <About />
+        <Services />
+        <Pricing />
+        <Contact />
       </main>
       <footer className="flex h-24 w-full items-center justify-center border-t">
         <a
