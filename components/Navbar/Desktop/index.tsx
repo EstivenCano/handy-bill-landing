@@ -1,5 +1,3 @@
-import links from '../links.json';
-import { NavItem } from './NavItem';
 import NavList from './NavList';
 import { NavbarBranding } from './NavbarBranding';
 

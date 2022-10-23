@@ -1,7 +1,14 @@
 {
-    "pointOfSales": "Point of sales",
+    "about": "About",
     "activateDark": "Activate dark mode",
     "activateLight": "Activate light mode",
+    "contact": "Contact",
     "dark": "Dark",
-    "light": "Light"
+    "handyBill": "Handy Bill",
+    "handyDescription": "Automate sales and invoicing processes, control your inventory, increase your productivity and monitor your business performance with Handy Bill",
+    "home": "Home",
+    "light": "Light",
+    "pointOfSales": "Point of sales",
+    "pricing": "Pricing",
+    "services": "Services"
 }
