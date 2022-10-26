@@ -1,14 +1,18 @@
 import { LazyMotion, domAnimation, m } from 'framer-motion';
+import { FC } from 'react';
 
 import { useMainLogo } from './useMainLogo';
 
-export const MainLogo = () => {
-  const { rotation, ref } = useMainLogo();
+interface Props {
+  isInViewPort: boolean;
+}
+
+export const MainLogo: FC<Props> = ({ isInViewPort }) => {
+  const { rotation } = useMainLogo(isInViewPort);
 
   return (
     <LazyMotion features={domAnimation}>
       <m.div
-        ref={ref}
         data-testid="main-container"
         initial={{ opacity: 0, rotate: 0 }}
         animate={{ opacity: 1, rotate: rotation }}
@@ -30,7 +34,7 @@ export const MainLogo = () => {
             repeatType: 'reverse',
             repeatDelay: 0.5,
           }}
-          className="dark-rentangle-1 w-16 h-16 md:w-20 md:h-20 md:bottom-28 md:right-28 bottom-24 right-24 top-0 left-0  m-auto"
+          className="dark-rentangle-1 w-16 h-16 md:w-20 md:h-20 md:bottom-28 md:right-28 bottom-24 right-24 top-0 left-0 m-auto"
         />
         <m.div
           initial={{ x: 0, rotate: -45 }}

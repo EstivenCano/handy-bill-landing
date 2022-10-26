@@ -1,19 +1,16 @@
-import { useInView } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export const useMainLogo = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref);
+export const useMainLogo = (isInViewPort: boolean) => {
   const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
-    if (isInView) {
+    if (isInViewPort) {
       const timer = setTimeout(() => {
         setRotation((prevState) => prevState + 45);
       }, 10000);
       return () => clearTimeout(timer);
     }
-  }, [rotation, isInView]);
+  }, [rotation, isInViewPort]);
 
-  return { rotation, ref, isInView };
+  return { rotation };
 };
