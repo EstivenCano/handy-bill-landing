@@ -54,7 +54,7 @@ export const ScrollTop: FC<Props> = ({ show }) => {
               opacity: showTooltip ? 1 : 0,
             }}
             transition={{
-              duration: 0.2,
+              duration: 0.02,
             }}
             exit={{ opacity: 0 }}
             id="scroll-top-tooltip"
