@@ -22,6 +22,7 @@ export const ScrollTop: FC<Props> = ({ show }) => {
             about="Go to home"
           >
             <motion.button
+              aria-label="Go to home"
               onMouseOver={handleShowTooltip}
               onMouseOut={handleCloseTooltip}
               initial={{
