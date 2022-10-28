@@ -1,6 +1,6 @@
 * {
   scrollbar-width: thin;
-  scrollbar-color: theme('colors.primary.700') theme('colors.foreground');
+  scrollbar-color: theme('colors.primary.600') theme('colors.transparent');
 }
 
 *::-webkit-scrollbar {

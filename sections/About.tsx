@@ -25,7 +25,7 @@ const About = () => {
         <motion.h1
           variants={cardVariants}
           transition={{ duration: 1 }}
-          className="m-auto font-bold text-4xl md:text-6xl max-w-lg text-center text-shadow-md"
+          className="m-auto font-bold text-4xl md:text-6xl text-center text-shadow-md"
         >
           {t('about:takeYourBusiness')}
         </motion.h1>
