@@ -35,6 +35,7 @@ body {
   @import './display/tooltip.css';
   @import './layout/logo.css';
   @import './inputs/button.css';
+  @import './display/typography.css';
 }
 
 .theme-dark {

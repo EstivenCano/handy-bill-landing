@@ -3,11 +3,13 @@ import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
-import { About } from 'sections/About';
+import { lazy } from 'react';
 import { Contact } from 'sections/Contact';
 import { HomePage } from 'sections/HomePage';
 import { Pricing } from 'sections/Pricing';
 import { Services } from 'sections/Services';
+
+const About = lazy(() => import('sections/About'));
 
 export const getStaticProps: GetStaticProps = async ({
   locale,
@@ -15,7 +17,10 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale || defaultLocale!, ['common'])),
+      ...(await serverSideTranslations(locale || defaultLocale!, [
+        'common',
+        'about',
+      ])),
     },
   };
 };

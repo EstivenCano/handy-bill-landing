@@ -22,6 +22,7 @@ export const ScrollTop: FC<Props> = ({ show }) => {
             about="Go to home"
           >
             <motion.button
+              aria-label="Go to home"
               onMouseOver={handleShowTooltip}
               onMouseOut={handleCloseTooltip}
               initial={{
@@ -36,7 +37,7 @@ export const ScrollTop: FC<Props> = ({ show }) => {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                className="w-fit h-fit fill-white"
+                className="fill-white"
               >
                 <path
                   fillRule="evenodd"

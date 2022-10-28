@@ -24,10 +24,10 @@ export const HomePage = () => {
         </h1>
         <hr className="border-transparent bg-primary-700 border-2 m-1 w-72" />
         <hr className="border-transparent bg-content border-2 m-1 w-72" />
-        <h2 className="text-primary-600 font-bold text-xl md:text-2xl mt-3">
+        <h2 className="font-bold text-xl md:text-2xl mt-3 text-transparent bg-clip-text bg-gradient-to-tr from-primary-100 to-primary-600 text-shadow">
           {t('common:pointOfSales')}
         </h2>
-        <p className="text-content text-center max-w-lg text-md md:text-xl py-10 px-5">
+        <p className="text-content text-center max-w-lg text-lg md:text-xl py-10 px-5">
           {t('common:handyDescription')}
         </p>
         <Link about="Go to about" aria-current="page" href="/#about">
