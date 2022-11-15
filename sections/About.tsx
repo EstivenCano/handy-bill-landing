@@ -2,7 +2,7 @@ import { Card } from '@/components/Card';
 import { Variants, motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 
-const cardVariants: Variants = {
+const TitleVariants: Variants = {
   offscreen: {
     opacity: 0,
   },
@@ -14,25 +14,25 @@ const cardVariants: Variants = {
 const About = () => {
   const { t } = useTranslation();
   return (
-    <motion.article
+    <motion.section
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true }}
       id="about"
-      className="flex w-full pt-14 md:pt-16 min-h-screen overflow-hidden flex-col justify-evenly space-y-5 px-4 md:px-10 bg-gradient-to-tr from-background via-background to-primary-700/40"
+      className="flex w-full pt-14 pb-10 md:pt-16 min-h-screen overflow-hidden flex-col justify-evenly space-y-5 px-4 md:px-10 bg-gradient-to-tr from-background via-background to-primary-700/40"
     >
       <span>
         <motion.h1
-          variants={cardVariants}
+          variants={TitleVariants}
           transition={{ duration: 1 }}
           className="m-auto font-bold text-4xl md:text-6xl text-center text-shadow-md"
         >
           {t('about:takeYourBusiness')}
         </motion.h1>
         <motion.h2
-          variants={cardVariants}
+          variants={TitleVariants}
           transition={{ duration: 1, delay: 0.2 }}
-          className="m-auto font-bold text-4xl md:text-6xl max-w-lg text-center text-transparent bg-clip-text bg-gradient-to-r from-primary-100 to-primary-600 text-shadow-md"
+          className="m-auto font-bold text-4xl md:text-6xl max-w-lg text-center text-transparent bg-clip-text bg-gradient-to-r from-primary-100 to-primary-600 text-shadow-md pb-2"
         >
           {t('about:toNextLevel')}
         </motion.h2>
@@ -51,22 +51,22 @@ const About = () => {
       </span>
       <div className="flex lg:flex-row flex-col m-auto space-y-5 lg:space-y-0 lg:space-x-5">
         <Card
-          content={t('about:fastContent')}
+          content={<p className="text-md">{t('about:fastContent')}</p>}
           title={t('about:fast')}
           delay={0.2}
         />
         <Card
-          content={t('about:modernContent')}
+          content={<p className="text-md">{t('about:modernContent')}</p>}
           title={t('about:modern')}
           delay={0.4}
         />
         <Card
-          content={t('about:intuitiveContent')}
+          content={<p className="text-md">{t('about:intuitiveContent')}</p>}
           title={t('about:intuitive')}
           delay={0.6}
         />
       </div>
-    </motion.article>
+    </motion.section>
   );
 };
 

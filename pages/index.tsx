@@ -4,12 +4,12 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { lazy } from 'react';
-import { Contact } from 'sections/Contact';
-import { HomePage } from 'sections/HomePage';
-import { Pricing } from 'sections/Pricing';
-import { Services } from 'sections/Services';
 
 const About = lazy(() => import('sections/About'));
+const Services = lazy(() => import('sections/Services'));
+const HomePage = lazy(() => import('sections/HomePage'));
+const Contact = lazy(() => import('sections/Contact'));
+const Pricing = lazy(() => import('sections/Pricing'));
 
 export const getStaticProps: GetStaticProps = async ({
   locale,
@@ -20,6 +20,7 @@ export const getStaticProps: GetStaticProps = async ({
       ...(await serverSideTranslations(locale || defaultLocale!, [
         'common',
         'about',
+        'services',
       ])),
     },
   };
@@ -46,16 +47,6 @@ const Home: NextPage = ({
         <Pricing />
         <Contact />
       </main>
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by <strong>TailSoft</strong>
-        </a>
-      </footer>
     </>
   );
 };
