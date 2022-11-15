@@ -14,6 +14,21 @@ const TitleVariants: Variants = {
   },
 };
 
+const imageSrc =
+  'https://res.cloudinary.com/dwlgyffvu/image/upload/v1668320395/handy-bill-landing/';
+
+const cardContent = [
+  { title: 'billing', image: `${imageSrc}bill_vde3to.webp` },
+  { title: 'accounting', image: `${imageSrc}accounting_pj8iut.webp` },
+  { title: 'inventory', image: `${imageSrc}store_u0iah0.webp` },
+  { title: 'sales', image: `${imageSrc}transaction_jk9zsl.webp` },
+  { title: 'reports', image: `${imageSrc}financial_fc7wql.webp` },
+  { title: 'payroll', image: `${imageSrc}waitress_lcrl7w.webp` },
+  { title: 'customers', image: `${imageSrc}customers_j6r0nm.webp` },
+  { title: 'suppliers', image: `${imageSrc}suppliers_vtg7dl.webp` },
+  { title: 'products', image: `${imageSrc}products_tzwq2b.webp` },
+];
+
 const Services = () => {
   const { t } = useTranslation();
   return (
@@ -53,117 +68,21 @@ const Services = () => {
         />
       </motion.span>
       <motion.div className="flex justify-center flex-wrap gap-x-2 md:gap-x-10 gap-y-10 pt-10">
-        <Card
-          title={t('services:billing')}
-          size="small"
-          image={
-            <Image
-              blurDataURL="data:image/webp;base64,UklGRswCAABXRUJQVlA4WAoAAAAgAAAAgQAAVQAASUNDUBgCAAAAAAIYAAAAAAQwAABtbnRyUkdCIFhZWiAAAAAAAAAAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAHRyWFlaAAABZAAAABRnWFlaAAABeAAAABRiWFlaAAABjAAAABRyVFJDAAABoAAAAChnVFJDAAABoAAAAChiVFJDAAABoAAAACh3dHB0AAAByAAAABRjcHJ0AAAB3AAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAFgAAAAcAHMAUgBHAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA+EAAC2z3BhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABYWVogAAAAAAAA9tYAAQAAAADTLW1sdWMAAAAAAAAAAQAAAAxlblVTAAAAIAAAABwARwBvAG8AZwBsAGUAIABJAG4AYwAuACAAMgAwADEANlZQOCCOAAAA8AYAnQEqggBWAD7tdrBWKackI6ComTAdiWlu3V45AMiJBWtU1nX1YshYMeS5c9mSjlTLqVZu/FxNGygD4iK1lAD+71bKhe5KZ4shJqOiNbI1ukmUqoK88mEzQTH2xr3K1C/KsLhK3bH10jP4JSAghaJ9pF8ELQqMb40CXuTuRCOfu/IqggAYH/S7tgAAAA=="
-              src="https://res.cloudinary.com/dwlgyffvu/image/upload/v1668320395/handy-bill-landing/bill_vde3to.webp"
-              layout="fill"
-              objectFit="cover"
-              alt="Report icon"
-            />
-          }
-        />
-        <Card
-          title={t('services:accounting')}
-          size="small"
-          image={
-            <Image
-              blurDataURL="data:image/webp;base64,UklGRswCAABXRUJQVlA4WAoAAAAgAAAAgQAAVQAASUNDUBgCAAAAAAIYAAAAAAQwAABtbnRyUkdCIFhZWiAAAAAAAAAAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAHRyWFlaAAABZAAAABRnWFlaAAABeAAAABRiWFlaAAABjAAAABRyVFJDAAABoAAAAChnVFJDAAABoAAAAChiVFJDAAABoAAAACh3dHB0AAAByAAAABRjcHJ0AAAB3AAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAFgAAAAcAHMAUgBHAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA+EAAC2z3BhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABYWVogAAAAAAAA9tYAAQAAAADTLW1sdWMAAAAAAAAAAQAAAAxlblVTAAAAIAAAABwARwBvAG8AZwBsAGUAIABJAG4AYwAuACAAMgAwADEANlZQOCCOAAAA8AYAnQEqggBWAD7tdrBWKackI6ComTAdiWlu3V45AMiJBWtU1nX1YshYMeS5c9mSjlTLqVZu/FxNGygD4iK1lAD+71bKhe5KZ4shJqOiNbI1ukmUqoK88mEzQTH2xr3K1C/KsLhK3bH10jP4JSAghaJ9pF8ELQqMb40CXuTuRCOfu/IqggAYH/S7tgAAAA=="
-              src="https://res.cloudinary.com/dwlgyffvu/image/upload/v1668320395/handy-bill-landing/accounting_pj8iut.webp"
-              layout="fill"
-              objectFit="cover"
-              alt="Report icon"
-            />
-          }
-        />
-        <Card
-          title={t('services:inventory')}
-          size="small"
-          image={
-            <Image
-              src="https://res.cloudinary.com/dwlgyffvu/image/upload/v1668320395/handy-bill-landing/store_u0iah0.webp"
-              layout="fill"
-              objectFit="cover"
-              alt="Report icon"
-            />
-          }
-        />
-        <Card
-          title={t('services:sales')}
-          size="small"
-          image={
-            <Image
-              src="https://res.cloudinary.com/dwlgyffvu/image/upload/v1668320395/handy-bill-landing/transaction_jk9zsl.webp"
-              layout="fill"
-              objectFit="cover"
-              alt="Report icon"
-            />
-          }
-        />
-        <Card
-          title={t('services:reports')}
-          size="small"
-          image={
-            <Image
-              src="https://res.cloudinary.com/dwlgyffvu/image/upload/v1668320394/handy-bill-landing/financial_fc7wql.webp"
-              layout="fill"
-              objectFit="cover"
-              className="filter brightness-90"
-              alt="Report icon"
-            />
-          }
-        />
-        <Card
-          title={t('services:payroll')}
-          size="small"
-          image={
-            <Image
-              src="https://res.cloudinary.com/dwlgyffvu/image/upload/v1668320395/handy-bill-landing/waitress_lcrl7w.webp"
-              layout="fill"
-              objectFit="cover"
-              alt="Report icon"
-            />
-          }
-        />
-        <Card
-          title={t('services:customers')}
-          size="small"
-          image={
-            <Image
-              src="https://res.cloudinary.com/dwlgyffvu/image/upload/v1668320395/handy-bill-landing/customers_j6r0nm.webp"
-              layout="fill"
-              objectFit="cover"
-              alt="Report icon"
-            />
-          }
-        />
-        <Card
-          title={t('services:suppliers')}
-          size="small"
-          image={
-            <Image
-              src="https://res.cloudinary.com/dwlgyffvu/image/upload/v1668320395/handy-bill-landing/suppliers_vtg7dl.webp"
-              layout="fill"
-              objectFit="cover"
-              alt="Report icon"
-            />
-          }
-        />
-        <Card
-          title={t('services:products')}
-          size="small"
-          image={
-            <Image
-              src="https://res.cloudinary.com/dwlgyffvu/image/upload/v1668320396/handy-bill-landing/products_tzwq2b.webp"
-              layout="fill"
-              objectFit="cover"
-              alt="Report icon"
-            />
-          }
-        />
+        {cardContent.map(({ image, title }) => (
+          <Card
+            key={title}
+            title={t(`services:${title}`)}
+            size="small"
+            image={
+              <Image
+                src={image}
+                layout="fill"
+                objectFit="cover"
+                alt={`${title} image`}
+              />
+            }
+          />
+        ))}
       </motion.div>
     </motion.section>
   );

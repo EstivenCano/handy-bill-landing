@@ -32,7 +32,7 @@ export const ScrollTop: FC<Props> = ({ show }) => {
                 opacity: 1,
               }}
               exit={{ opacity: 0 }}
-              className="fixed bottom-3 right-3 p-2 button-primary rounded-full w-9 h-9"
+              className="fixed bottom-3 right-3 p-2 button-primary rounded-full w-9 h-9 z-10"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
