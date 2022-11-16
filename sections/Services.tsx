@@ -1,7 +1,8 @@
 import { Card } from '@/components/Card';
-import { Variants, motion } from 'framer-motion';
+import { AnimatePresence, Variants, motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 const TitleVariants: Variants = {
   offscreen: {
@@ -31,6 +32,17 @@ const cardContent = [
 
 const Services = () => {
   const { t } = useTranslation();
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const cardSelected = cardContent.find((card) => card.title === selectedId);
+
+  useEffect(() => {
+    if (selectedId) {
+      document.getElementsByTagName('body')[0].style.overflow = 'hidden';
+    } else {
+      document.getElementsByTagName('body')[0].style.overflow = 'auto';
+    }
+  }, [selectedId]);
+
   return (
     <motion.section
       initial="offscreen"
@@ -67,23 +79,62 @@ const Services = () => {
           className="border-0 mt-5 bg-gradient-to-r from-primary to-primary-600 h-1 w-full"
         />
       </motion.span>
-      <motion.div className="flex justify-center flex-wrap gap-x-2 md:gap-x-10 gap-y-10 pt-10">
+      <motion.ol className="flex flex-wrap justify-center m-auto gap-5">
         {cardContent.map(({ image, title }) => (
-          <Card
+          <motion.li
             key={title}
-            title={t(`services:${title}`)}
-            size="small"
-            image={
-              <Image
-                src={image}
-                layout="fill"
-                objectFit="cover"
-                alt={`${title} image`}
-              />
-            }
-          />
+            transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+            layoutId={title}
+            className="basis-96 sm:basis-72 cursor-pointer hover:bg-primary-300/20 rounded-lg"
+          >
+            <Card
+              title={t(`services:${title}`)}
+              onClick={() => setSelectedId(title)}
+              size="small"
+              image={
+                <Image
+                  src={image}
+                  layout="fill"
+                  objectFit="cover"
+                  alt={`${title} image`}
+                />
+              }
+            />
+          </motion.li>
         ))}
-      </motion.div>
+        <AnimatePresence>
+          {selectedId && (
+            <>
+              <motion.div
+                animate={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6 }}
+                className="bg-foreground/95 z-50 fixed p-8 top-0 flex w-screen h-screen"
+              >
+                <Card
+                  title={t(`services:${selectedId}`)}
+                  content={t(`services:${selectedId}`)}
+                  selected={selectedId}
+                  size="large"
+                  direction="row"
+                  className="m-auto h-5/6 w-5/6"
+                  onClick={() => setSelectedId(null)}
+                  image={
+                    <Image
+                      src={cardSelected?.image || ''}
+                      layout="fill"
+                      objectFit="cover"
+                      alt={`${selectedId} image`}
+                    />
+                  }
+                />
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
+      </motion.ol>
     </motion.section>
   );
 };
