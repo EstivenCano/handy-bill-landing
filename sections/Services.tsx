@@ -119,8 +119,8 @@ const Services = () => {
                   selected={selectedId}
                   size="large"
                   direction="row"
-                  className="m-auto h-5/6 w-5/6"
-                  onClick={() => setSelectedId(null)}
+                  className="m-auto h-5/6 w-5/6 bg-foreground"
+                  onClose={() => setSelectedId(null)}
                   image={
                     <Image
                       src={cardSelected?.image || ''}
