@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
 import { match } from 'ts-pattern';
@@ -22,6 +21,7 @@ export const CardClose: FC<Props> = ({ onClose }) => {
           >
             <svg
               data-tooltip-target="close-tooltip"
+              role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               strokeWidth="1.5"

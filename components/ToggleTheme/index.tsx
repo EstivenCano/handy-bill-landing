@@ -10,7 +10,6 @@ import { SunIcon } from './SunIcon';
 
 export const ToggleTheme = () => {
   const { t } = useTranslation();
-
   const { setTheme, theme } = useThemeContext();
   const isDark = theme === 'dark';
 
