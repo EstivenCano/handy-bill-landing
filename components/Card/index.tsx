@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import { FC, ReactNode, useEffect, useState } from 'react';
+import { FC, ReactNode } from 'react';
 import { match } from 'ts-pattern';
 
+import { CardClose } from './CardClose';
 import { CardContent } from './CardContent';
 import { CardHeader } from './CardHeader';
 import { CardImage } from './CardImage';
@@ -53,26 +54,9 @@ export const Card: FC<Props> = ({
       layoutId={selected}
       onClick={onClick}
       transition={{ duration: 1, delay: delay || 0.2 }}
-      className={`flex relative flex-grow bg-gradient-to-tr overflow-hidden from-foreground/20 to-primary/20 rounded-xl border-content/10 border-2 ${cardDirection.card} ${className}`}
+      className={`flex relative flex-grow bg-gradient-to-tr from-foreground/20 to-primary/20 rounded-xl border-content/10 border-2 ${cardDirection.card} ${className}`}
     >
-      {match(!!onClose)
-        .with(true, () => (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            onClick={onClose}
-            stroke="currentColor"
-            className="w-8 h-8 absolute cursor-pointer right-1 top-1 z-10 stroke-primary-600 fill-foreground/80 hover:scale-105 hover:stroke-primary-500"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-        ))
-        .otherwise(() => null)}
+      <CardClose onClose={onClose} />
       <CardImage image={image} className={cardDirection.image} />
       <div className={`flex my-5 px-5 w-full h-fit flex-col`}>
         <CardHeader className={cardSize.title} title={title} />

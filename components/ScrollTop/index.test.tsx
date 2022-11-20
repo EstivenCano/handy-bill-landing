@@ -23,7 +23,7 @@ describe('ScrollTop functionality', () => {
   test('It should display tooltip when mouse is hover and be hide when mouse unhover', async () => {
     render(<ScrollTop show={true} />);
 
-    await waitFor(() => expect(screen.getByRole('tooltip')).not.toBeVisible());
+    await waitFor(() => expect(screen.queryByRole('tooltip')).toBeNull());
 
     userEvent.hover(screen.getByRole('button'));
 

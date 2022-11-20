@@ -111,7 +111,7 @@ const Services = () => {
                 initial={{ opacity: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.6 }}
-                className="bg-foreground/95 z-50 fixed p-8 top-0 flex w-screen h-screen"
+                className="bg-foreground/95 z-40 fixed p-8 top-0 flex w-screen h-screen"
               >
                 <Card
                   title={t(`services:${selectedId}`)}

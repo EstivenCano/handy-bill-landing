@@ -1,10 +1,10 @@
 import { act, renderHook } from '@testing-library/react';
 
-import { useScrollTop } from './useScrollTop';
+import { useTooltip } from './useTooltip';
 
-describe('useScrollTop functionality', () => {
+describe('useTooltip functionality', () => {
   test('handleShowTooltip should change value of showTooltip to true', () => {
-    const { result } = renderHook(useScrollTop);
+    const { result } = renderHook(useTooltip);
 
     expect(result.current.showTooltip).toBe(false);
 
@@ -16,7 +16,7 @@ describe('useScrollTop functionality', () => {
   });
 
   test('handleCloseTooltip should change value of showTooltip to false', () => {
-    const { result } = renderHook(useScrollTop);
+    const { result } = renderHook(useTooltip);
 
     expect(result.current.showTooltip).toBe(false);
 
@@ -34,7 +34,7 @@ describe('useScrollTop functionality', () => {
   });
 
   test('If show parameter if false, showTooltip should be false', () => {
-    const { result } = renderHook(() => useScrollTop(false));
+    const { result } = renderHook(() => useTooltip(false));
 
     expect(result.current.showTooltip).toBe(false);
   });
