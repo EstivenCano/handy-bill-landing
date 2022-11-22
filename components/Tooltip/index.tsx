@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { FC, cloneElement } from 'react';
 import { match } from 'ts-pattern';
 
+import { useThemeContext } from '../../hooks/useTheme';
 import { useTooltip } from './useTooltip';
 
 interface Props {
@@ -21,6 +22,7 @@ export const Tooltip: FC<Props> = ({
   onClick,
   position,
 }) => {
+  const { theme } = useThemeContext();
   const { handleCloseTooltip, handleShowTooltip, showTooltip } =
     useTooltip(false);
 
@@ -51,6 +53,7 @@ export const Tooltip: FC<Props> = ({
       className={`${className}`}
       onClick={onClick}
       data-tooltip-target={`${title}-tooltip`}
+      data-tooltip-placement={position}
     >
       <div className="relative">
         {cloneElement(children, {
@@ -72,7 +75,9 @@ export const Tooltip: FC<Props> = ({
               exit={{ opacity: 0 }}
               id={`${title}-tooltip`}
               role="tooltip"
-              className={`tooltip z-50 ${positionClass}`}
+              className={`tooltip z-50 ${positionClass} ${match(theme)
+                .with('dark', () => 'text-primary')
+                .otherwise(() => null)}`}
             >
               {title}
             </motion.span>

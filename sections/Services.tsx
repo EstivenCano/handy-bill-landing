@@ -19,15 +19,51 @@ const imageSrc =
   'https://res.cloudinary.com/dwlgyffvu/image/upload/v1668320395/handy-bill-landing/';
 
 const cardContent = [
-  { title: 'billing', image: `${imageSrc}bill_vde3to.webp` },
-  { title: 'accounting', image: `${imageSrc}accounting_pj8iut.webp` },
-  { title: 'inventory', image: `${imageSrc}store_u0iah0.webp` },
-  { title: 'sales', image: `${imageSrc}transaction_jk9zsl.webp` },
-  { title: 'reports', image: `${imageSrc}financial_fc7wql.webp` },
-  { title: 'payroll', image: `${imageSrc}waitress_lcrl7w.webp` },
-  { title: 'customers', image: `${imageSrc}customers_j6r0nm.webp` },
-  { title: 'suppliers', image: `${imageSrc}suppliers_vtg7dl.webp` },
-  { title: 'products', image: `${imageSrc}products_tzwq2b.webp` },
+  {
+    title: 'billing',
+    image: `${imageSrc}bill_vde3to.webp`,
+    content: ['billingContent1', 'billingContent2', 'billingContent3'],
+  },
+  {
+    title: 'accounting',
+    image: `${imageSrc}accounting_pj8iut.webp`,
+    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+  },
+  {
+    title: 'inventory',
+    image: `${imageSrc}store_u0iah0.webp`,
+    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+  },
+  {
+    title: 'sales',
+    image: `${imageSrc}transaction_jk9zsl.webp`,
+    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+  },
+  {
+    title: 'reports',
+    image: `${imageSrc}financial_fc7wql.webp`,
+    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+  },
+  {
+    title: 'payroll',
+    image: `${imageSrc}waitress_lcrl7w.webp`,
+    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+  },
+  {
+    title: 'customers',
+    image: `${imageSrc}customers_j6r0nm.webp`,
+    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+  },
+  {
+    title: 'suppliers',
+    image: `${imageSrc}suppliers_vtg7dl.webp`,
+    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+  },
+  {
+    title: 'products',
+    image: `${imageSrc}products_tzwq2b.webp`,
+    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+  },
 ];
 
 const Services = () => {
@@ -115,7 +151,15 @@ const Services = () => {
               >
                 <Card
                   title={t(`services:${selectedId}`)}
-                  content={t(`services:${selectedId}`)}
+                  content={
+                    <div className="space-y-8 flex flex-col flex-wrap overflow-y-auto">
+                      {cardSelected?.content.map((item) => (
+                        <p key={item} className="text-lg">
+                          {t(`services:${item}`)}
+                        </p>
+                      ))}
+                    </div>
+                  }
                   selected={selectedId}
                   size="large"
                   direction="row"

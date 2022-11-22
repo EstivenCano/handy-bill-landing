@@ -58,7 +58,7 @@ export const Card: FC<Props> = ({
     >
       <CardClose onClose={onClose} />
       <CardImage image={image} className={cardDirection.image} />
-      <div className={`flex my-5 px-5 w-full h-fit flex-col`}>
+      <div className={`flex my-5 px-5 w-full h-fit flex-col overflow-y-auto`}>
         <CardHeader className={cardSize.title} title={title} />
         <CardContent content={content} />
       </div>
