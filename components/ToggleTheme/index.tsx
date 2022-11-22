@@ -21,7 +21,6 @@ export const ToggleTheme = () => {
     <>
       <Tooltip
         position="bottom"
-        positionDistance={16}
         title={match(isDark)
           .with(true, () => t('common:activateLight'))
           .otherwise(() => t('common:activateDark'))}

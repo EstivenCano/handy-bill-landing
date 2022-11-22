@@ -6,7 +6,7 @@ import { useTooltip } from './useTooltip';
 
 interface Props {
   className?: string;
-  positionDistance?: number;
+  positionDistance?: 1 | 2 | 3 | 4;
   position?: 'top' | 'bottom' | 'left' | 'right';
   onClick?: () => void;
   title: string;
@@ -15,7 +15,7 @@ interface Props {
 
 export const Tooltip: FC<Props> = ({
   className,
-  positionDistance = 11,
+  positionDistance = 1,
   children,
   title,
   onClick,
@@ -24,12 +24,27 @@ export const Tooltip: FC<Props> = ({
   const { handleCloseTooltip, handleShowTooltip, showTooltip } =
     useTooltip(false);
 
-  const positionClass = match(position)
-    .with('top', () => `bottom-${positionDistance} right-0`)
-    .with('bottom', () => `top-${positionDistance} right-0`)
-    .with('left', () => `right-${positionDistance} top-0`)
-    .with('right', () => `left-${positionDistance} top-0`)
-    .otherwise(() => `bottom-${positionDistance} right-0`);
+  const positionClass = match({
+    position: position,
+    distance: positionDistance,
+  })
+    .with({ position: 'top', distance: 1 }, () => `bottom-11 right-0`)
+    .with({ position: 'top', distance: 2 }, () => `bottom-14 right-0`)
+    .with({ position: 'top', distance: 3 }, () => `bottom-16 right-0`)
+    .with({ position: 'top', distance: 4 }, () => `bottom-20 right-0`)
+    .with({ position: 'bottom', distance: 1 }, () => `top-11 right-0`)
+    .with({ position: 'bottom', distance: 2 }, () => `top-14 right-0`)
+    .with({ position: 'bottom', distance: 3 }, () => `top-16 right-0`)
+    .with({ position: 'bottom', distance: 4 }, () => `top-20 right-0`)
+    .with({ position: 'left', distance: 1 }, () => `right-11 right-0`)
+    .with({ position: 'left', distance: 2 }, () => `right-14 right-0`)
+    .with({ position: 'left', distance: 3 }, () => `right-16 right-0`)
+    .with({ position: 'left', distance: 4 }, () => `right-20 right-0`)
+    .with({ position: 'right', distance: 1 }, () => `left-11 right-0`)
+    .with({ position: 'right', distance: 2 }, () => `left-14 right-0`)
+    .with({ position: 'right', distance: 3 }, () => `left-16 right-0`)
+    .with({ position: 'right', distance: 4 }, () => `left-20 right-0`)
+    .otherwise(() => `bottom-11 right-0`);
 
   return (
     <div
@@ -37,31 +52,33 @@ export const Tooltip: FC<Props> = ({
       onClick={onClick}
       data-tooltip-target={`${title}-tooltip`}
     >
-      {cloneElement(children, {
-        onMouseOver: handleShowTooltip,
-        onMouseOut: handleCloseTooltip,
-      })}
-      <AnimatePresence>
-        {showTooltip && (
-          <motion.span
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
-            transition={{
-              duration: 0.3,
-            }}
-            exit={{ opacity: 0 }}
-            id={`${title}-tooltip`}
-            role="tooltip"
-            className={`tooltip z-50 ${positionClass}`}
-          >
-            {title}
-          </motion.span>
-        )}
-      </AnimatePresence>
+      <div className="relative">
+        {cloneElement(children, {
+          onMouseOver: handleShowTooltip,
+          onMouseOut: handleCloseTooltip,
+        })}
+        <AnimatePresence>
+          {showTooltip && (
+            <motion.span
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+              transition={{
+                duration: 0.3,
+              }}
+              exit={{ opacity: 0 }}
+              id={`${title}-tooltip`}
+              role="tooltip"
+              className={`tooltip z-50 ${positionClass}`}
+            >
+              {title}
+            </motion.span>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 };

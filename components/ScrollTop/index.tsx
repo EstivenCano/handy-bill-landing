@@ -22,7 +22,7 @@ export const ScrollTop: FC<Props> = ({ show }) => {
           <Tooltip
             position="top"
             title={t('common:scrollToTop')}
-            className="fixed bottom-3 right-3"
+            className="fixed z-30 bottom-3 right-3"
           >
             <motion.button
               aria-label="Go to home"
