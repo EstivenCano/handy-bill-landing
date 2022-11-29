@@ -1,7 +1,7 @@
 import { Card } from '@/components/Card';
 import { AnimatePresence, Variants, motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
-import Image from 'next/image';
+import {Image} from '@/components/Image';
 import { useEffect, useState } from 'react';
 
 const TitleVariants: Variants = {
