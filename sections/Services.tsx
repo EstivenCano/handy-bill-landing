@@ -1,7 +1,7 @@
 import { Card } from '@/components/Card';
+import { Image } from '@/components/Image';
 import { AnimatePresence, Variants, motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
-import {Image} from '@/components/Image';
 import { useEffect, useState } from 'react';
 
 const TitleVariants: Variants = {
@@ -22,47 +22,63 @@ const cardContent = [
   {
     title: 'billing',
     image: `${imageSrc}bill_vde3to.webp`,
-    content: ['billingContent1', 'billingContent2', 'billingContent3'],
+    content: ['billing.content.1', 'billing.content.2', 'billing.content.3'],
   },
   {
     title: 'accounting',
     image: `${imageSrc}accounting_pj8iut.webp`,
-    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+    content: [
+      'accounting.content.1',
+      'accounting.content.2',
+      'accounting.content.3',
+    ],
   },
   {
     title: 'inventory',
     image: `${imageSrc}store_u0iah0.webp`,
-    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+    content: [
+      'inventory.content.1',
+      'inventory.content.2',
+      'inventory.content.3',
+    ],
   },
   {
     title: 'sales',
     image: `${imageSrc}transaction_jk9zsl.webp`,
-    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+    content: ['sales.content.1', 'sales.content.2', 'sales.content.3'],
   },
   {
     title: 'reports',
     image: `${imageSrc}financial_fc7wql.webp`,
-    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+    content: ['reports.content.1', 'reports.content.2', 'reports.content.3'],
   },
   {
     title: 'payroll',
     image: `${imageSrc}waitress_lcrl7w.webp`,
-    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+    content: ['payroll.content.1', 'payroll.content.2', 'payroll.content.3'],
   },
   {
     title: 'customers',
     image: `${imageSrc}customers_j6r0nm.webp`,
-    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+    content: [
+      'customers.content.1',
+      'customers.content.2',
+      'customers.content.3',
+    ],
   },
   {
     title: 'suppliers',
     image: `${imageSrc}suppliers_vtg7dl.webp`,
-    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+    content: [
+      'suppliers.content.1',
+      'suppliers.content.2',
+      'suppliers.content.3',
+    ],
   },
   {
     title: 'products',
     image: `${imageSrc}products_tzwq2b.webp`,
-    content: ['inventoryContent1', 'inventoryContent2', 'inventoryContent3'],
+    content: ['products.content.1', 'products.content.2', 'products.content.3'],
   },
 ];
 
@@ -85,7 +101,7 @@ const Services = () => {
       whileInView="onscreen"
       viewport={{ once: true }}
       id="services"
-      className="flex w-full pt-14 md:pt-20 min-h-screen overflow-hidden flex-col justify-start space-y-5 px-4 md:px-10 bg-gradient-to-bl from-background via-background to-primary-700/40"
+      className="flex overflow-visible w-full pt-14 md:pt-20 min-h-screen flex-col justify-start space-y-5 px-4 md:px-10 bg-gradient-to-bl from-background via-background to-primary-700/40"
     >
       <motion.span>
         <motion.h1

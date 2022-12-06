@@ -54,7 +54,7 @@ export const Card: FC<Props> = ({
       layoutId={selected}
       onClick={onClick}
       transition={{ duration: 1, delay: delay || 0.2 }}
-      className={`flex relative flex-grow bg-gradient-to-tr from-foreground/20 to-primary/20 rounded-xl border-content/10 border-2 ${cardDirection.card} ${className}`}
+      className={`flex overflow-hidden relative flex-grow bg-gradient-to-tr from-foreground/20 to-primary/20 rounded-xl border-content/10 border-2 ${cardDirection.card} ${className}`}
     >
       <CardClose onClose={onClose} />
       <CardImage image={image} className={cardDirection.image} />
