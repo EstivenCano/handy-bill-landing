@@ -6,5 +6,8 @@ module.exports = {
   eslint: {
     dirs: ['.'],
   },
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
   i18n,
 };
