@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 
-export const useScrollTop = (show: boolean) => {
+export const useTooltip = (show: boolean) => {
   const [showTooltip, setShowTooltip] = useState(false);
   const { t } = useTranslation();
 

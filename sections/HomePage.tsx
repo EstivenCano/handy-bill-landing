@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRef } from 'react';
 
-export const HomePage = () => {
+const HomePage = () => {
   const { t } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   const isInViewPort = useIsInViewport(ref);
@@ -38,3 +38,5 @@ export const HomePage = () => {
     </section>
   );
 };
+
+export default HomePage;

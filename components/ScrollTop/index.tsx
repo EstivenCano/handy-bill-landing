@@ -1,30 +1,32 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 import type { FC } from 'react';
 
-import { useScrollTop } from './useScrollTop';
+import { Tooltip } from '../Tooltip';
 
 interface Props {
   show: boolean;
 }
 
 export const ScrollTop: FC<Props> = ({ show }) => {
-  const { handleCloseTooltip, handleShowTooltip, showTooltip, t } =
-    useScrollTop(show);
+  const { t } = useTranslation();
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
 
   return (
     <AnimatePresence>
       {show && (
         <>
-          <Link
-            data-tooltip-target="scroll-top-tooltip"
-            href={'/#home'}
-            about="Go to home"
+          <Tooltip
+            position="top"
+            title={t('common:scrollToTop')}
+            className="fixed z-30 bottom-3 right-3"
           >
             <motion.button
               aria-label="Go to home"
-              onMouseOver={handleShowTooltip}
-              onMouseOut={handleCloseTooltip}
+              onClick={scrollToTop}
               initial={{
                 opacity: 0,
               }}
@@ -32,7 +34,7 @@ export const ScrollTop: FC<Props> = ({ show }) => {
                 opacity: 1,
               }}
               exit={{ opacity: 0 }}
-              className="fixed bottom-3 right-3 p-2 button-primary rounded-full w-9 h-9"
+              className=" button-primary p-2 rounded-full w-9 h-9 z-10"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -46,24 +48,7 @@ export const ScrollTop: FC<Props> = ({ show }) => {
                 />
               </svg>
             </motion.button>
-          </Link>
-          <motion.span
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: showTooltip ? 1 : 0,
-            }}
-            transition={{
-              duration: 0.02,
-            }}
-            exit={{ opacity: 0 }}
-            id="scroll-top-tooltip"
-            role="tooltip"
-            className="fixed bottom-16 right-3 tooltip"
-          >
-            {t('common:scrollToTop')}
-          </motion.span>
+          </Tooltip>
         </>
       )}
     </AnimatePresence>
