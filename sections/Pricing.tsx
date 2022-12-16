@@ -1,3 +1,4 @@
+import { Card } from '@/components/Card';
 import { Variants, motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 
@@ -48,6 +49,11 @@ const Pricing = () => {
           className="border-0 mt-5 bg-gradient-to-r from-primary to-primary-600 h-1 w-full"
         />
       </motion.span>
+      <div className="flex flex-wrap space-x-6">
+        <Card title="Hello" className="h-96" />
+        <Card title="hello" className="h-96" featured />
+        <Card title="hello" className="h-96" />
+      </div>
     </motion.section>
   );
 };

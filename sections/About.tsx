@@ -11,6 +11,32 @@ const TitleVariants: Variants = {
   },
 };
 
+const CardVariants: Variants = {
+  offscreen: {
+    opacity: 0,
+    y: 10,
+  },
+  onscreen: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
+const cardsContent = [
+  {
+    title: 'about:fast',
+    content: 'about:fastContent',
+  },
+  {
+    title: 'about:modern',
+    content: 'about:modernContent',
+  },
+  {
+    title: 'about:intuitive',
+    content: 'about:intuitiveContent',
+  },
+];
+
 const About = () => {
   const { t } = useTranslation();
   return (
@@ -49,23 +75,25 @@ const About = () => {
           className="border-0 mt-5 bg-gradient-to-r from-primary to-primary-600 h-1 w-full"
         />
       </span>
-      <div className="flex lg:flex-row flex-col m-auto space-y-5 lg:space-y-0 lg:space-x-5">
-        <Card
-          content={<p className="text-md">{t('about:fastContent')}</p>}
-          title={t('about:fast')}
-          delay={0.2}
-        />
-        <Card
-          content={<p className="text-md">{t('about:modernContent')}</p>}
-          title={t('about:modern')}
-          delay={0.4}
-        />
-        <Card
-          content={<p className="text-md">{t('about:intuitiveContent')}</p>}
-          title={t('about:intuitive')}
-          delay={0.6}
-        />
-      </div>
+      <motion.ol className="flex lg:flex-row flex-col m-auto space-y-5 lg:space-y-0 lg:space-x-5">
+        {cardsContent.map((card, index) => (
+          <motion.li
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true }}
+            variants={CardVariants}
+            transition={{ duration: 1, delay: index * 0.2 }}
+            key={index}
+            className="flex flex-col"
+          >
+            <Card
+              content={<p className="text-md">{t(card.content)}</p>}
+              title={t(card.title)}
+              delay={index * 0.2}
+            />
+          </motion.li>
+        ))}
+      </motion.ol>
     </motion.section>
   );
 };

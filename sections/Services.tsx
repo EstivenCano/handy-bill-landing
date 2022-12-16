@@ -15,6 +15,17 @@ const TitleVariants: Variants = {
   },
 };
 
+const CardVariants: Variants = {
+  offscreen: {
+    opacity: 0,
+    y: 10,
+  },
+  onscreen: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
 const imageSrc =
   'https://res.cloudinary.com/dwlgyffvu/image/upload/v1668320395/handy-bill-landing/';
 
@@ -135,6 +146,10 @@ const Services = () => {
         {cardContent.map(({ image, title }) => (
           <motion.li
             key={title}
+            initial="offscreen"
+            whileInView="onscreen"
+            variants={CardVariants}
+            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.05 }}
             layoutId={title}

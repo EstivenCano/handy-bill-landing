@@ -14,7 +14,7 @@ export const CardContent: FC<Props> = ({ content, className }) => {
         .otherwise(() => (
           <span>
             <hr className="my-5 border-content/10" />
-            <div className={`flex justify-center ${className}`}>{content}</div>
+            <div className={`flex  ${className}`}>{content}</div>
           </span>
         ))}
     </span>

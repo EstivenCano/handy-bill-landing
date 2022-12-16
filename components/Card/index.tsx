@@ -8,29 +8,31 @@ import { CardHeader } from './CardHeader';
 import { CardImage } from './CardImage';
 
 interface Props {
-  image?: ReactNode;
+  className?: string;
   content?: ReactNode;
-  selected?: string;
-  title?: string;
-  size?: 'small' | 'medium' | 'large';
-  direction?: 'row' | 'column';
   delay?: number;
+  direction?: 'row' | 'column';
+  featured?: boolean;
+  image?: ReactNode;
   onClick?: () => void;
   onClose?: () => void;
-  className?: string;
+  selected?: string;
+  size?: 'small' | 'medium' | 'large';
+  title?: string;
 }
 
 export const Card: FC<Props> = ({
-  content,
-  image,
-  title,
-  delay,
-  size = 'medium',
-  selected,
-  direction = 'column',
   className,
+  content,
+  delay,
+  direction = 'column',
+  featured,
+  image,
   onClick,
   onClose,
+  selected,
+  size = 'medium',
+  title,
 }) => {
   const cardSize = match(size)
     .with('small', () => ({ title: 'text-xl md:text-3xl' }))
@@ -49,12 +51,20 @@ export const Card: FC<Props> = ({
     }))
     .exhaustive();
 
+  const cardFeatured = match(featured)
+    .with(true, () => ({
+      card: 'bg-gradient-to-tr from-foreground/80 to-primary/50 scale-105',
+    }))
+    .otherwise(() => ({
+      card: 'bg-gradient-to-tr from-foreground/20 to-primary/20',
+    }));
+
   return (
     <motion.article
       layoutId={selected}
       onClick={onClick}
       transition={{ duration: 1, delay: delay || 0.2 }}
-      className={`flex overflow-hidden relative flex-grow bg-gradient-to-tr from-foreground/20 to-primary/20 rounded-xl border-content/10 border-2 ${cardDirection.card} ${className}`}
+      className={`flex overflow-hidden relative flex-grow rounded-xl border-content/10 border-2 ${cardDirection.card} ${cardFeatured.card} ${className}`}
     >
       <CardClose onClose={onClose} />
       <CardImage image={image} className={cardDirection.image} />
