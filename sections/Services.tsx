@@ -194,7 +194,7 @@ const Services = () => {
                   selected={selectedId}
                   size="large"
                   direction="row"
-                  className="m-auto h-5/6 w-5/6 bg-foreground"
+                  className="m-auto h-5/6 w-5/6 bg-foreground max-w-4xl"
                   onClose={() => setSelectedId(null)}
                   image={
                     <Image

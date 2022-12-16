@@ -13,7 +13,7 @@ export const CardContent: FC<Props> = ({ content, className }) => {
         .with(undefined, () => null)
         .otherwise(() => (
           <span>
-            <hr className="my-5 border-content/10" />
+            <hr className="my-5 border-content/20" />
             <div className={`flex  ${className}`}>{content}</div>
           </span>
         ))}
