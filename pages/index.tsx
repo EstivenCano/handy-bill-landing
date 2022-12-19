@@ -21,6 +21,7 @@ export const getStaticProps: GetStaticProps = async ({
         'common',
         'about',
         'services',
+        'pricing',
       ])),
     },
   };

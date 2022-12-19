@@ -19,6 +19,7 @@ interface Props {
   selected?: string;
   size?: 'small' | 'medium' | 'large';
   title?: string;
+  titleIcon?: ReactNode;
 }
 
 export const Card: FC<Props> = ({
@@ -33,6 +34,7 @@ export const Card: FC<Props> = ({
   selected,
   size = 'medium',
   title,
+  titleIcon,
 }) => {
   const cardSize = match(size)
     .with('small', () => ({ title: 'text-xl md:text-3xl' }))
@@ -69,7 +71,11 @@ export const Card: FC<Props> = ({
       <CardClose onClose={onClose} />
       <CardImage image={image} className={cardDirection.image} />
       <div className={`flex my-5 px-5 w-full h-fit flex-col overflow-y-auto`}>
-        <CardHeader className={cardSize.title} title={title} />
+        <CardHeader
+          className={cardSize.title}
+          title={title}
+          titleIcon={titleIcon}
+        />
         <CardContent content={content} />
       </div>
     </motion.article>
