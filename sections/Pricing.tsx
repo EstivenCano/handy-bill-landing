@@ -1,6 +1,7 @@
 import { Card } from '@/components/Card';
 import { Variants, motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
+import { Fragment } from 'react';
 
 const TitleVariants: Variants = {
   offscreen: {
@@ -8,6 +9,64 @@ const TitleVariants: Variants = {
   },
   onscreen: {
     opacity: 1,
+  },
+};
+
+type PricingContent = {
+  title: string;
+  cost: number;
+  mainContent: {
+    users: number;
+    bills: number;
+    products: number;
+  };
+  secondaryContent: string[];
+  recommended?: boolean;
+};
+
+const pricingContent: Record<string, PricingContent> = {
+  basic: {
+    title: 'pricing:basic',
+    cost: 50000,
+    mainContent: {
+      users: 2,
+      bills: 1000,
+      products: 100,
+    },
+    secondaryContent: [
+      'pricing:reports',
+      'pricing:customers',
+      'pricing:inventory',
+    ],
+  },
+  standard: {
+    title: 'pricing:standard',
+    cost: 100000,
+    mainContent: {
+      users: 3,
+      bills: 2000,
+      products: 200,
+    },
+    secondaryContent: [
+      'pricing:basicBenefits',
+      'pricing:taxes',
+      'pricing:userNotifications',
+    ],
+    recommended: true,
+  },
+  premium: {
+    title: 'pricing:premium',
+    cost: 200000,
+    mainContent: {
+      users: 5,
+      bills: 5000,
+      products: 500,
+    },
+    secondaryContent: [
+      'pricing:standardBenefits',
+      'pricing:expenses',
+      'pricing:suppliers',
+    ],
   },
 };
 
@@ -49,54 +108,68 @@ const Pricing = () => {
           className="border-0 mt-5 bg-gradient-to-r from-primary to-primary-600 h-1 w-full"
         />
       </motion.span>
-      <div className="flex flex-wrap space-x-6">
-        <Card
-          title={t('pricing:basic')}
-          content={
-            <div className="flex flex-col w-full">
-              <span className="m-auto">
-                <h4 className="text-4xl text-primary-400 font-bold">{`$ 50.000`}</h4>
-                <h5 className="text-xl">{t('pricing:monthlyPayment')}</h5>
-              </span>
-              <hr className="my-5 border-content/20" />
-              <ul className="flex flex-col space-y-1 text-xl text-center">
-                <li>{t('pricing:3Users')}</li>
-                <li>{t('pricing:1000billsPerMonth')}</li>
-                <li>{t('pricing:userNotifications')}</li>
-              </ul>
-              <p className="py-3 text-primary-400 text-center">
-                {`${t('pricing:reports')} +
-                  ${t('pricing:customers')} +
-                  ${t('pricing:products')}`}
-              </p>
-            </div>
-          }
-          size="small"
-          className="h-96 scale-95 hover:scale-100 transition-all duration-300 ease-in-out"
-        />
-        <Card
-          title={t('pricing:standard')}
-          titleIcon={
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              className="w-6 h-6 fill-amber-300"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                clipRule="evenodd"
-              />
-            </svg>
-          }
-          className="h-96 scale-100 hover:scale-105 transition-all duration-300 ease-in-out"
-          featured
-        />
-        <Card
-          title={t('pricing:premium')}
-          size="small"
-          className="h-96 scale-95 hover:scale-100 transition-all duration-300 ease-in-out"
-        />
+      <div className="flex flex-wrap gap-6">
+        {Object.keys(pricingContent).map((key) => {
+          const { title, cost, mainContent, secondaryContent, recommended } =
+            pricingContent[key];
+          return (
+            <Card
+              key={key}
+              title={t(title)}
+              titleIcon={
+                recommended && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="w-6 h-6 fill-amber-300"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433L10.788 3.21z"
+                    />
+                  </svg>
+                )
+              }
+              content={
+                <div className="flex flex-col w-full">
+                  <span className="m-auto flex flex-col content-center items-center">
+                    <h4 className="text-4xl text-primary-400 font-bold">{`$ ${cost} COP`}</h4>
+                    <h5 className="text-xl">{t('pricing:monthlyPayment')}</h5>
+                  </span>
+                  <hr className="my-5 border-content/20" />
+                  <ul className="flex flex-col space-y-1 text-xl text-center">
+                    <li>
+                      <strong>{mainContent.users}</strong> {t('pricing:users')}
+                    </li>
+                    <li>
+                      <strong>{mainContent.bills}</strong>{' '}
+                      {t('pricing:billsPerMonth')}
+                    </li>
+                    <li>
+                      <strong>{mainContent.products}</strong>{' '}
+                      {t('pricing:products')}
+                    </li>
+                  </ul>
+                  <p className="py-3 text-primary-400 text-center">
+                    {secondaryContent.map((content, index) => (
+                      <Fragment key={content}>
+                        {`${t(content)}` +
+                          (index !== secondaryContent.length - 1 ? ' - ' : '')}
+                      </Fragment>
+                    ))}
+                  </p>
+                </div>
+              }
+              featured={recommended}
+              className={
+                'transition-transform duration-300 ' +
+                (recommended
+                  ? 'scale-100 hover:scale-105'
+                  : 'scale-95 hover:scale-100')
+              }
+            />
+          );
+        })}
       </div>
     </motion.section>
   );
