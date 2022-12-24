@@ -22,6 +22,7 @@ export const getStaticProps: GetStaticProps = async ({
         'about',
         'services',
         'pricing',
+        'contact',
       ])),
     },
   };

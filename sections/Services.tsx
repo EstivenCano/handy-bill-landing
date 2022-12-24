@@ -150,10 +150,10 @@ const Services = () => {
             whileInView="onscreen"
             variants={CardVariants}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             whileHover={{ scale: 1.05 }}
             layoutId={title}
-            className="basis-96 sm:basis-72 cursor-pointer hover:bg-primary-300/20 rounded-lg"
+            className="basis-96 sm:basis-80 cursor-pointer hover:bg-primary-300/20 rounded-lg"
           >
             <Card
               title={t(`services:${title}`)}
@@ -177,7 +177,7 @@ const Services = () => {
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.3 }}
                 className="bg-foreground/95 z-40 fixed p-8 top-0 flex w-screen h-screen"
               >
                 <Card

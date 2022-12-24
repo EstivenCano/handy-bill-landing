@@ -76,7 +76,7 @@ const Pricing = () => {
     <motion.section
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true }}
       id="pricing"
       className="flex w-full pt-14 md:pt-20 min-h-screen overflow-hidden flex-col justify-start space-y-5 px-4 md:px-10 bg-gradient-to-tl from-background via-background to-primary-700/40"
     >
@@ -108,7 +108,14 @@ const Pricing = () => {
           className="border-0 mt-5 bg-gradient-to-r from-primary to-primary-600 h-1 w-full"
         />
       </motion.span>
-      <div className="flex flex-wrap gap-6">
+      <motion.div
+        variants={TitleVariants}
+        transition={{
+          duration: 1,
+          delay: 0.4,
+        }}
+        className="flex flex-wrap gap-6"
+      >
         {Object.keys(pricingContent).map((key) => {
           const { title, cost, mainContent, secondaryContent, recommended } =
             pricingContent[key];
@@ -162,15 +169,15 @@ const Pricing = () => {
               }
               featured={recommended}
               className={
-                'transition-transform duration-300 ' +
+                'transition-transform duration-300' +
                 (recommended
-                  ? 'scale-100 hover:scale-105'
-                  : 'scale-95 hover:scale-100')
+                  ? ' scale-100 hover:scale-105'
+                  : ' scale-95 hover:scale-100')
               }
             />
           );
         })}
-      </div>
+      </motion.div>
     </motion.section>
   );
 };
