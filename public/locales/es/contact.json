@@ -1,9 +1,11 @@
 {
-    "letsGet": "Pongamonos",
-    "inTouch": "en contacto",
-    "sendUs": "Envianos un mensaje",
-    "name": "Nombre",
     "email": "Correo",
+    "inTouch": "en contacto",
+    "letsGet": "Pongamonos",
     "message": "Mensaje",
-    "send": "Enviar"
+    "name": "Nombre",
+    "orContactUsSocial": "O contactanos por nuestras redes sociales",
+    "send": "Enviar",
+    "sendUs": "Envianos un mensaje",
+    "visitUs": "Visitanos en nuestras oficinas"
 }

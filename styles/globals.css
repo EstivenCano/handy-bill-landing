@@ -34,6 +34,7 @@ body {
   @import './navigation/navItem.css';
   @import './display/tooltip.css';
   @import './layout/logo.css';
+  @import './layout/icon.css';
   @import './inputs/button.css';
   @import './inputs/input.css';
   @import './display/typography.css';

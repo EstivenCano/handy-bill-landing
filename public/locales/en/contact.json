@@ -1,9 +1,11 @@
 {
-    "letsGet": "Let's get",
-    "inTouch": "in touch",
-    "sendUs": "Send us a message",
-    "name": "Name",
     "email": "Email",
+    "inTouch": "in touch",
+    "letsGet": "Let's get",
     "message": "Message",
-    "send": "Send"
+    "name": "Name",
+    "orContactUsSocial": "Or contact us by our social media",
+    "send": "Send",
+    "sendUs": "Send us a message",
+    "visitUs": "Visit us in our offices"
 }
