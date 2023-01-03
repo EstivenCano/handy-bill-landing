@@ -11,9 +11,10 @@ const sidebar = {
     clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
     transition: {
       type: 'spring',
-      stiffness: 20,
+      stiffness: 100,
       restDelta: 2,
     },
+    height: '270px',
   }),
   closed: {
     clipPath: 'circle(18px at 29px 18px)',
@@ -22,6 +23,9 @@ const sidebar = {
       type: 'spring',
       stiffness: 400,
       damping: 40,
+    },
+    transitionEnd: {
+      height: '35px',
     },
   },
 };
@@ -43,10 +47,7 @@ export const NavMenu = () => {
       custom={height}
       ref={ref}
     >
-      <motion.div
-        className="h-72 w-32 bg-foreground rounded-br-2xl"
-        variants={sidebar}
-      />
+      <motion.div className="bg-foreground rounded-br-2xl" variants={sidebar} />
       <NavList />
       <NavButton toggle={handleToggle} />
     </motion.div>
