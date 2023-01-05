@@ -140,8 +140,8 @@ const Pricing = () => {
               content={
                 <div className="flex flex-col w-full">
                   <span className="m-auto flex flex-col content-center items-center">
-                    <h4 className="text-4xl text-primary-400 font-bold">{`$ ${cost} COP`}</h4>
-                    <h5 className="text-xl">{t('pricing:monthlyPayment')}</h5>
+                    <p className="text-4xl text-primary-400 font-bold">{`$ ${cost} COP`}</p>
+                    <p className="text-xl">{t('pricing:monthlyPayment')}</p>
                   </span>
                   <hr className="my-5 border-content/20" />
                   <ul className="flex flex-col space-y-1 text-xl text-center">
