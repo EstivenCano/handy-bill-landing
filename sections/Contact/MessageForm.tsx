@@ -11,9 +11,9 @@ export const MessageForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col space-y-5 w-full max-w-xl bg-foreground/50 border-2 border-primary/30 p-4 rounded-md shadow-md shadow-primary-700"
+      className="flex flex-col space-y-5 w-full max-w-xl bg-foreground border-2 border-primary/30 p-4 rounded-md shadow-md shadow-primary-700"
     >
-      <h3 className="font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-primary-100 to-primary-600">
+      <h3 className="font-bold text-2xl text-primary-700 dark:text-primary-500">
         {t('contact:sendUs')}
       </h3>
       <hr className="my-5 border-content/20" />

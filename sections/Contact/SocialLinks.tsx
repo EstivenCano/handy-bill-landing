@@ -7,9 +7,9 @@ export const SocialLinks = () => {
   return (
     <div className="flex space-x-5">
       <FacebookIcon className="styled-icon" />
-      <LinkedInIcon className="styled-icon" />
       <InstagramIcon className="styled-icon" />
       <WhatsappIcon className="styled-icon" />
+      <LinkedInIcon className="styled-icon" />
     </div>
   );
 };

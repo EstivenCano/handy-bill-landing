@@ -4,7 +4,7 @@ export const LocationMap = () => {
   const { t } = useTranslation();
   return (
     <>
-      <h3 className="font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-primary-100 to-primary-600">
+      <h3 className="font-bold text-2xl text-primary-700 dark:text-primary-500">
         {t('contact:visitUs')}
       </h3>
       <iframe

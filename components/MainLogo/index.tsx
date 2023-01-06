@@ -17,7 +17,7 @@ export const MainLogo: FC<Props> = ({ isInViewPort }) => {
         initial={{ opacity: 0, rotate: 0 }}
         animate={{ opacity: 1, rotate: rotation }}
         transition={{ duration: 2, type: 'spring' }}
-        className="flex border border-foreground bg-background relative md:w-96 md:h-96 w-80 h-80 shadow-2xl shadow-primary/40 drop-shadow-xl rounded-full"
+        className="flex border mt-5 md:mt-0 border-foreground bg-background relative md:w-96 md:h-96 w-80 h-80 shadow-2xl shadow-primary/40 drop-shadow-xl rounded-full"
       >
         <m.div
           initial={{ rotate: -45 }}

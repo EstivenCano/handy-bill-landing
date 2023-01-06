@@ -112,7 +112,7 @@ const Services = () => {
       whileInView="onscreen"
       viewport={{ once: true }}
       id="services"
-      className="flex overflow-visible w-full pt-14 md:pt-20 min-h-screen flex-col justify-start space-y-5 px-4 md:px-10 bg-gradient-to-bl from-background via-background to-primary-700/40"
+      className="flex overflow-visible w-full pt-14 md:pt-20 min-h-screen flex-col justify-start space-y-5 px-4 md:px-10 bg-gradient-to-bl from-background via-background to-primary-300/70 dark:to-primary-700/40"
     >
       <motion.span>
         <motion.h1
@@ -176,8 +176,9 @@ const Services = () => {
               animate={{ opacity: 1 }}
               initial={{ opacity: 0 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="bg-foreground/95 z-40 fixed p-8 top-0 flex w-screen h-screen"
+              transition={{ duration: 0.4 }}
+              onClick={() => setSelectedId(null)}
+              className="bg-black/80 z-40 fixed p-8 top-0 flex w-screen h-screen"
             >
               <Card
                 title={t(`services:${selectedId}`)}

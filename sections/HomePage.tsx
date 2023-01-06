@@ -13,12 +13,12 @@ const HomePage = () => {
   return (
     <section
       id="home"
-      className="flex w-full min-h-screen overflow-hidden flex-col md:flex-row items-center md:pl-10 py-10 bg-gradient-to-br from-background via-background to-primary-700/40"
+      className="flex w-full min-h-screen overflow-hidden flex-col md:flex-row items-center md:pl-10 py-10 bg-gradient-to-br from-background via-background to-primary-300/70 dark:to-primary-700/40"
     >
       <div ref={ref} className="flex flex-0 lg:flex-1 justify-center">
         <MainLogo isInViewPort={isInViewPort} />
       </div>
-      <div className="flex flex-1 flex-col justify-center items-center py-2 pl-1">
+      <div className="flex flex-1 flex-col justify-center items-center py-5 pl-1">
         <h1 className="text-4xl md:text-6xl font-bold mb-3">
           {t('common:handyBill')}
         </h1>

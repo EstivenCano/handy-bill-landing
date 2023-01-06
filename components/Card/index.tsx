@@ -55,17 +55,20 @@ export const Card: FC<Props> = ({
 
   const cardFeatured = match(featured)
     .with(true, () => ({
-      card: 'bg-gradient-to-tr from-foreground/80 to-primary/50 scale-105',
+      card: 'bg-gradient-to-tr from-foreground to-primary/50 scale-105',
     }))
     .otherwise(() => ({
-      card: 'bg-gradient-to-tr from-foreground/20 to-primary/20',
+      card: 'bg-gradient-to-tr from-foreground to-primary/30',
     }));
 
   return (
     <motion.article
       layoutId={selected}
-      onClick={onClick}
-      transition={{ duration: 1, delay: delay || 0.2 }}
+      onClick={(e) => {
+        e.stopPropagation();
+        onClick?.();
+      }}
+      transition={{ duration: 0.4, delay: delay || 0.2 }}
       className={`flex overflow-hidden relative flex-grow rounded-xl border-content/10 border-2 ${cardDirection.card} ${cardFeatured.card} ${className}`}
     >
       <CardClose onClose={onClose} />

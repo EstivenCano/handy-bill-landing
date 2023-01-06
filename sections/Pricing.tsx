@@ -78,7 +78,7 @@ const Pricing = () => {
       whileInView="onscreen"
       viewport={{ once: true }}
       id="pricing"
-      className="flex w-full pt-14 md:pt-20 min-h-screen overflow-hidden flex-col justify-start space-y-5 px-4 md:px-10 bg-gradient-to-tl from-background via-background to-primary-700/40"
+      className="flex w-full pt-14 md:pt-20 min-h-screen overflow-hidden flex-col justify-start space-y-5 px-4 md:px-10 bg-gradient-to-tl from-background via-background to-primary-300/70 dark:to-primary-700/40"
     >
       <motion.span>
         <motion.h1

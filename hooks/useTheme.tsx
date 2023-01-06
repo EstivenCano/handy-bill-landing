@@ -7,6 +7,7 @@ import {
   useEffect,
   useState,
 } from 'react';
+import { match } from 'ts-pattern';
 
 import type { Theme } from '../models/Theme';
 
@@ -50,6 +51,9 @@ export const ThemeProvider: FC<Props> = ({ children }) => {
 
   const handleSetTheme = (value: Theme) => {
     setTheme(value);
+    match(value)
+      .with('dark', () => document.documentElement.classList.add('dark'))
+      .otherwise(() => document.documentElement.classList.remove('dark'));
   };
 
   //Listen any changes on prefers-color-scheme property to change the current theme
