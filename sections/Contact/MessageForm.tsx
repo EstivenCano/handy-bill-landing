@@ -11,7 +11,7 @@ export const MessageForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col space-y-5 w-full max-w-xl bg-foreground border-2 border-primary/30 p-4 rounded-md shadow-md shadow-primary-700"
+      className="flex flex-col space-y-5 w-full max-w-xl bg-foreground/20 border-2 border-primary/30 p-4 rounded-md shadow-md shadow-primary-700 mx-auto"
     >
       <h3 className="font-bold text-2xl text-primary-700 dark:text-primary-500">
         {t('contact:sendUs')}
@@ -19,7 +19,7 @@ export const MessageForm = () => {
       <hr className="my-5 border-content/20" />
       <div className="flex flex-col space-y-2">
         <label htmlFor="name" className="text-lg font-bold">
-          {t('contact:name')}
+          {t('contact:name')} *
         </label>
         <Input
           type="text"
@@ -32,7 +32,7 @@ export const MessageForm = () => {
       </div>
       <div className="flex flex-col space-y-2">
         <label htmlFor="email" className="text-lg font-bold">
-          {t('contact:email')}
+          {t('contact:email')} *
         </label>
         <Input
           type="email"
@@ -45,7 +45,7 @@ export const MessageForm = () => {
       </div>
       <div className="flex flex-col space-y-2">
         <label htmlFor="message" className="text-lg font-bold">
-          {t('contact:message')}
+          {t('contact:message')} *
         </label>
         <TextArea
           name="message"
@@ -54,6 +54,7 @@ export const MessageForm = () => {
           id="message"
           onChange={handleChange}
           value={form.message}
+          style={{ resize: 'none' }}
         />
       </div>
       <button type="submit" className="button-outlined">

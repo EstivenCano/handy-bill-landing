@@ -49,6 +49,11 @@ const Home: NextPage = ({
         <Pricing />
         <Contact />
       </main>
+      <footer className="flex flex-col items-start p-5 justify-center border-t-2 border-primary/50">
+        <p className="text-sm text-content">
+          {t('common:handyBill')} © {new Date().getFullYear()}
+        </p>
+      </footer>
     </>
   );
 };

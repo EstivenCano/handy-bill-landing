@@ -55,7 +55,7 @@ const Contact = () => {
       </motion.span>
       <motion.div className="flex flex-col md:flex-row gap-10 items-stretch content-between">
         <MessageForm />
-        <div className="w-full space-y-4">
+        <div className="w-full space-y-4 bg-foreground/20 border-2 border-primary/30 p-4 rounded-md shadow-md shadow-primary-700">
           <LocationMap />
           <h3 className="font-bold text-2xl text-primary-700 dark:text-primary-500">
             {t('contact:orContactUsSocial')}
