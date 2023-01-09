@@ -153,7 +153,7 @@ const Services = () => {
             transition={{ duration: 0.3 }}
             whileHover={{ scale: 1.05 }}
             layoutId={title}
-            className="basis-96 sm:basis-80 cursor-pointer hover:bg-primary-300/20 rounded-lg"
+            className="basis-96 sm:basis-72 cursor-pointer hover:bg-primary-300/20 rounded-lg"
           >
             <Card
               title={t(`services:${title}`)}

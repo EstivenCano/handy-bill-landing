@@ -15,7 +15,7 @@ input:-webkit-autofill:focus {
 }
 
 .styled-input {
-  @apply bg-foreground border-primary-600 border-2 w-full p-2 transition-colors duration-300 ease-in-out;
+  @apply bg-foreground border-primary-700 dark:border-primary-600 border-2 w-full p-2 transition-colors duration-300 ease-in-out;
 }
 
 .styled-input:focus {
