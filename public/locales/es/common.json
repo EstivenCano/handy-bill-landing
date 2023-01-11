@@ -2,17 +2,21 @@
     "about": "Información",
     "activateDark": "Activar modo oscuro",
     "activateLight": "Activar modo claro",
-    "contact": "Contacto",
     "close": "Cerrar",
+    "contact": "Contacto",
     "dark": "Oscuro",
+    "error": "Error",
     "handyBill": "Handy Bill",
     "handyDescription": "Automatice los procesos de venta y facturación, controle su inventario, aumente su productividad y monitoree el rendimiento de su negocio con Handy Bill",
     "home": "Inicio",
+    "info": "Información",
     "light": "Claro",
     "loading": "Cargando",
     "moreInfo": "Más Información",
     "pointOfSales": "Punto de venta",
     "pricing": "Precios",
     "scrollToTop": "Ir hacia arriba",
-    "services": "Servicios"
+    "services": "Servicios",
+    "success": "Éxito",
+    "warning": "Advertencia"
 }

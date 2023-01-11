@@ -1,5 +1,6 @@
 {
     "email": "Correo",
+    "emailPlaceholder": "Escribe tu correo aquí",
     "form.response.200": "Gracias por contactarnos, pronto nos pondremos en contacto contigo.",
     "form.response.400": "Hubo un error al enviar el formulario, por favor intenta de nuevo.",
     "form.response.405": "Método no permitido.",
@@ -7,7 +8,9 @@
     "inTouch": "en contacto",
     "letsGet": "Pongamonos",
     "message": "Mensaje",
+    "messagePlaceholder": "Escribe tu mensaje aquí",
     "name": "Nombre",
+    "namePlaceholder": "Escribe tu nombre aquí",
     "orContactUsSocial": "O contactanos por nuestras redes sociales",
     "send": "Enviar",
     "sendUs": "Envianos un mensaje",

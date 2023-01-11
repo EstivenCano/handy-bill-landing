@@ -27,7 +27,7 @@ export default async function contact(
     ${req.body.email}</p>`,
   };
 
-  match(req.method)
+  return match(req.method)
     .with('POST', async () => {
       try {
         await transporter.sendMail(mailData);
@@ -46,6 +46,4 @@ export default async function contact(
         .status(405)
         .send({ success: false, message: 'form.response.405' });
     });
-
-  return res.end();
 }
