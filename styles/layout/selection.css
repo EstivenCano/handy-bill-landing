@@ -1,12 +1,10 @@
 ::-moz-selection {
   /* Code for Firefox */
-  color: theme('colors.primary.400');
-  background: theme('colors.foreground');
+  @apply text-content bg-primary-300 dark:bg-primary-700;
 }
 
 ::selection {
-  color: theme('colors.primary.400');
-  background: theme('colors.foreground');
+  @apply text-content bg-primary-300 dark:bg-primary-700;
 }
 
 * {

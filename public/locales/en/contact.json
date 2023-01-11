@@ -1,5 +1,6 @@
 {
     "email": "Email",
+    "emailPlaceholder": "Your email address",
     "form.response.200": "You message has been sent successfully, we will contact you soon.",
     "form.response.400": "There was an error sending your message, please try again later.",
     "form.response.405": "Method not allowed.",
@@ -7,7 +8,9 @@
     "inTouch": "in touch",
     "letsGet": "Let's get",
     "message": "Message",
+    "messagePlaceholder": "Your message",
     "name": "Name",
+    "namePlaceholder": "Your name",
     "orContactUsSocial": "Or contact us by our social media",
     "send": "Send",
     "sendUs": "Send us a message",

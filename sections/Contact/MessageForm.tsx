@@ -1,16 +1,23 @@
 import { Input } from '@/components/Input';
 import { TextArea } from '@/components/TextArea';
 import { useTranslation } from 'next-i18next';
+import { FormEvent, useState } from 'react';
 
 import { useMessageForm } from './useMessageForm';
 
 export const MessageForm = () => {
   const { t } = useTranslation();
   const { form, handleChange, handleSubmit } = useMessageForm();
+  const [invalidClass, setInvalidClass] = useState('');
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    handleSubmit(e);
+    setInvalidClass('');
+  };
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
       className="flex flex-col space-y-5 w-full max-w-xl mx-auto"
     >
       <h3 className="font-bold text-2xl text-primary-700 dark:text-primary-500">
@@ -23,10 +30,12 @@ export const MessageForm = () => {
         </label>
         <Input
           type="text"
+          pattern="^[a-zA-Z\p{L} ]*"
           required
           name="name"
           id="name"
           onChange={handleChange}
+          placeholder={t('contact:namePlaceholder')}
           value={form.name}
         />
       </div>
@@ -40,6 +49,7 @@ export const MessageForm = () => {
           name="email"
           id="email"
           onChange={handleChange}
+          placeholder={t('contact:emailPlaceholder')}
           value={form.email}
         />
       </div>
@@ -53,8 +63,9 @@ export const MessageForm = () => {
           required
           id="message"
           onChange={handleChange}
-          value={form.message}
+          placeholder={t('contact:messagePlaceholder')}
           style={{ resize: 'none' }}
+          value={form.message}
         />
       </div>
       <button type="submit" className="button-outlined">
