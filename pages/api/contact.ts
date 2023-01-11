@@ -46,4 +46,6 @@ export default async function contact(
         .status(405)
         .send({ success: false, message: 'form.response.405' });
     });
+
+  return res.end();
 }

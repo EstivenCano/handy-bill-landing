@@ -10,3 +10,7 @@
   @apply button border-2 border-primary-700 hover:border-primary-600 hover:text-primary-600 text-primary-700 dark:border-primary-500
   dark:hover:border-primary-400 dark:text-primary-400;
 }
+
+.button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
