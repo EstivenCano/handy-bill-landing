@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import { match } from 'ts-pattern';
 
-import { useComponentVisible } from '../../hooks/useComponentVisible';
 import { useThemeContext } from '../../hooks/useTheme';
 import { Tooltip } from '../Tooltip';
 import { MoonIcon } from './MoonIcon';

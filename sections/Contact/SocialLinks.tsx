@@ -1,4 +1,5 @@
 import { Tooltip } from '@/components/Tooltip';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { FacebookIcon } from 'public/icons/FacebookIcon';
 import { InstagramIcon } from 'public/icons/InstagramIcon';
@@ -30,6 +31,7 @@ const links = [
 ];
 
 export const SocialLinks = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="flex w-full space-x-5 justify-center md:justify-start">
@@ -42,7 +44,12 @@ export const SocialLinks = () => {
           >
             <span>
               <Link href={link.href} about={link.name}>
-                <a target="_blank">{link.icon}</a>
+                <a
+                  target="_blank"
+                  aria-label={`${t('common:goTo')} ${link.name}`}
+                >
+                  {link.icon}
+                </a>
               </Link>
             </span>
           </Tooltip>
