@@ -3,6 +3,15 @@ import userEvent from '@testing-library/user-event';
 
 import { NavMenu } from '.';
 
+jest.mock('next/router', () => ({
+  useRouter() {
+    return {
+      pathname: '',
+      query: '',
+    };
+  },
+}));
+
 describe('NavMenu functionality', () => {
   test('Should render content correctly', () => {
     render(<NavMenu />);
