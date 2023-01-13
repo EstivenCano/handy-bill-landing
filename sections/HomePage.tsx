@@ -30,9 +30,22 @@ const HomePage = () => {
         <p className="text-content text-center max-w-lg text-lg md:text-xl py-10 px-5">
           {t('common:handyDescription')}
         </p>
-        <Link about="Go to about" aria-current="page" href={`/?region=about`}>
-          <button className="button-outlined">{t('common:moreInfo')}</button>
-        </Link>
+        <div className="flex gap-4">
+          <Link
+            about={`${t('common:goTo')} ${t('common:about')}`}
+            aria-current="page"
+            href={`/?region=about`}
+          >
+            <button className="button-outlined">{t('common:moreInfo')}</button>
+          </Link>
+          <Link
+            about={`${t('common:goTo')} ${t('common:contact')}`}
+            aria-current="page"
+            href={`/?region=contact`}
+          >
+            <button className="button-primary">{t('common:getADemo')}</button>
+          </Link>
+        </div>
       </div>
       <ScrollTop show={!isInViewPort} />
     </section>

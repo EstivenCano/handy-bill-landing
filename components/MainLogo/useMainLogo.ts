@@ -7,7 +7,7 @@ export const useMainLogo = (isInViewPort: boolean) => {
     if (isInViewPort) {
       const timer = setTimeout(() => {
         setRotation((prevState) => prevState + 45);
-      }, 10000);
+      }, 7000);
       return () => clearTimeout(timer);
     }
   }, [rotation, isInViewPort]);

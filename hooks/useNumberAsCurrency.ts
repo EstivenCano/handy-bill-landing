@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-//Calculate the number as currency depending on the location of the user using the Intl API
+//Format the number as currency depending on the location of the user using the Intl API
 export const useNumberAsCurrency = () => {
-  const [locale, setLocale] = useState<string | undefined>(undefined);
+  const [locale, setLocale] = useState<string>();
 
   useEffect(() => {
     setLocale(Intl.DateTimeFormat().resolvedOptions().locale);

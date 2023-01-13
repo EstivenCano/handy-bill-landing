@@ -1,4 +1,4 @@
-import { LazyMotion, domAnimation, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FC } from 'react';
 
 import { useMainLogo } from './useMainLogo';
@@ -14,10 +14,15 @@ export const MainLogo: FC<Props> = ({ isInViewPort }) => {
     <>
       <motion.div
         data-testid="main-container"
-        initial={{ scale: 0.85, rotate: 0 }}
-        animate={{ scale: 1, rotate: rotation }}
-        transition={{ duration: 2, type: 'spring' }}
-        className="flex border mt-5 md:mt-0 border-foreground bg-background relative md:w-96 md:h-96 w-80 h-80 shadow-2xl shadow-primary/40 drop-shadow-xl rounded-full"
+        initial={{ scale: 0.85, rotateZ: 0 }}
+        animate={{ scale: 1, rotateZ: rotation }}
+        drag="x"
+        dragConstraints={{ left: -50, right: 50 }}
+        dragSnapToOrigin
+        dragElastic={0.1}
+        dragTransition={{ bounceStiffness: 150, bounceDamping: 10 }}
+        transition={{ duration: 3, type: 'spring' }}
+        className="flex border mt-5 md:mt-0 border-foreground bg-background relative md:w-96 md:h-96 w-80 h-80 shadow-2xl shadow-primary/40 drop-shadow-xl rounded-full hover:cursor-grab hover:active:cursor-grabbing"
       >
         <motion.div
           initial={{ rotate: -45 }}
