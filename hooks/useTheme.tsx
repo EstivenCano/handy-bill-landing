@@ -5,8 +5,10 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useState,
 } from 'react';
+import { match } from 'ts-pattern';
 
 import type { Theme } from '../models/Theme';
 
@@ -31,6 +33,7 @@ export const useThemeContext = () => {
     document.body.classList.value =
       'transition-colors ease-in-out duration-200';
     document.body.classList.add(`theme-${context.theme}`);
+    localStorage.setItem('theme', context.theme);
   }, [context.theme]);
 
   return context;
@@ -42,6 +45,7 @@ type Props = {
 
 export const ThemeProvider: FC<Props> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>('light');
+
   //MediaQuery listener to change current theme depending on user's preferences
   const mqListener = useCallback(
     (e: MediaQueryListEvent) => handleSetTheme(e.matches ? 'dark' : 'light'),
@@ -50,6 +54,9 @@ export const ThemeProvider: FC<Props> = ({ children }) => {
 
   const handleSetTheme = (value: Theme) => {
     setTheme(value);
+    match(value)
+      .with('dark', () => document.documentElement.classList.add('dark'))
+      .otherwise(() => document.documentElement.classList.remove('dark'));
   };
 
   //Listen any changes on prefers-color-scheme property to change the current theme

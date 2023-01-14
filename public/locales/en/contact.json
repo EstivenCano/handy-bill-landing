@@ -1,0 +1,18 @@
+{
+    "email": "Email",
+    "emailPlaceholder": "Your email address",
+    "form.response.200": "Your message has been sent successfully, We will contact you soon.",
+    "form.response.400": "There was an error sending your message, please try again later.",
+    "form.response.405": "Method not allowed.",
+    "handyBillLocation": "Handy Bill Location",
+    "inTouch": "in touch",
+    "letsGet": "Let's get",
+    "message": "Message",
+    "messagePlaceholder": "Your message",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "orContactUsSocial": "Or contact us by our social media",
+    "send": "Send",
+    "sendUs": "Send us a message",
+    "visitUs": "Visit us in our offices"
+}

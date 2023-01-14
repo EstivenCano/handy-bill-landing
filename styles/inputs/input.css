@@ -1,0 +1,95 @@
+input:-webkit-autofill {
+  box-shadow: 0 0 0 50px theme('colors.foreground/50') inset;
+  -webkit-box-shadow: 0 0 0 50px theme('colors.foreground/50') inset;
+  -webkit-text-fill-color: theme('colors.content');
+}
+
+input:-webkit-autofill:focus {
+  box-shadow: 0 0 0 50px theme('colors.foreground/50') inset;
+  -webkit-box-shadow: 0 0 0 50px theme('colors.foreground/50') inset;
+  -webkit-text-fill-color: theme('colors.content');
+}
+
+.styled-input-container {
+  @apply relative;
+}
+
+.styled-input {
+  @apply bg-foreground border-primary-700 dark:border-primary-600 border-2 w-full p-2 transition-colors duration-300 ease-in-out;
+}
+
+.styled-input:not(:placeholder-shown):not(:focus):invalid {
+  @apply border-red-500;
+}
+
+.styled-input:not(:placeholder-shown):focus:invalid ~ .styled-input-span {
+  @apply bg-red-500;
+}
+
+.styled-input:focus {
+  @apply outline-none;
+}
+
+.styled-input::placeholder {
+  @apply text-content/50;
+}
+
+.styled-input-span {
+  @apply absolute bg-primary-500 transition-transform duration-300 ease-in;
+}
+
+.bottom,
+.top {
+  height: 2px;
+  left: 0;
+  right: 0;
+  transform: scaleX(0);
+}
+
+.left,
+.right {
+  width: 2px;
+  top: 0;
+  bottom: 0;
+  transform: scaleY(0);
+}
+
+.bottom {
+  bottom: 0;
+  transform-origin: bottom right;
+}
+
+.styled-input:focus ~ .bottom {
+  transform-origin: bottom left;
+  transform: scaleX(1);
+}
+
+.right {
+  right: 0;
+  transform-origin: top right;
+}
+
+.styled-input:focus ~ .right {
+  transform-origin: bottom right;
+  transform: scaleY(1);
+}
+
+.top {
+  top: 0;
+  transform-origin: top left;
+}
+
+.styled-input:focus ~ .top {
+  transform-origin: top right;
+  transform: scaleX(1);
+}
+
+.left {
+  left: 0;
+  transform-origin: bottom left;
+}
+
+.styled-input:focus ~ .left {
+  transform-origin: top left;
+  transform: scaleY(1);
+}

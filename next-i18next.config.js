@@ -3,4 +3,8 @@ module.exports = {
     locales: ['es', 'en'],
     defaultLocale: 'es',
   },
+  localePath:
+    typeof window === 'undefined'
+      ? require('path').resolve('./public/locales')
+      : '/locales',
 };

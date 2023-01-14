@@ -77,7 +77,7 @@ export const Tooltip: FC<Props> = ({
               role="tooltip"
               className={`tooltip z-50 ${positionClass} ${match(theme)
                 .with('dark', () => 'text-primary')
-                .otherwise(() => null)}`}
+                .otherwise(() => 'text-primary-700')}`}
             >
               {title}
             </motion.span>

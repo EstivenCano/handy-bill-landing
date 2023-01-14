@@ -1,0 +1,12 @@
+::-moz-selection {
+  /* Code for Firefox */
+  @apply text-content bg-primary-300 dark:bg-primary-700;
+}
+
+::selection {
+  @apply text-content bg-primary-300 dark:bg-primary-700;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}

@@ -1,5 +1,6 @@
 import { Card } from '@/components/Card';
 import { Variants, motion } from 'framer-motion';
+import { useNumberAsCurrency } from 'hooks/useNumberAsCurrency';
 import { useTranslation } from 'next-i18next';
 import { Fragment } from 'react';
 
@@ -14,7 +15,8 @@ const TitleVariants: Variants = {
 
 type PricingContent = {
   title: string;
-  cost: number;
+  costCop: number;
+  costUsd: number;
   mainContent: {
     users: number;
     bills: number;
@@ -27,7 +29,8 @@ type PricingContent = {
 const pricingContent: Record<string, PricingContent> = {
   basic: {
     title: 'pricing:basic',
-    cost: 50000,
+    costCop: 50000,
+    costUsd: 10,
     mainContent: {
       users: 2,
       bills: 1000,
@@ -41,7 +44,8 @@ const pricingContent: Record<string, PricingContent> = {
   },
   standard: {
     title: 'pricing:standard',
-    cost: 100000,
+    costCop: 100000,
+    costUsd: 20,
     mainContent: {
       users: 3,
       bills: 2000,
@@ -56,7 +60,8 @@ const pricingContent: Record<string, PricingContent> = {
   },
   premium: {
     title: 'pricing:premium',
-    cost: 200000,
+    costCop: 200000,
+    costUsd: 40,
     mainContent: {
       users: 5,
       bills: 5000,
@@ -72,13 +77,14 @@ const pricingContent: Record<string, PricingContent> = {
 
 const Pricing = () => {
   const { t } = useTranslation();
+  const { numberAsCurrency } = useNumberAsCurrency();
   return (
     <motion.section
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true }}
       id="pricing"
-      className="flex w-full pt-14 md:pt-20 min-h-screen overflow-hidden flex-col justify-start space-y-5 px-4 md:px-10 bg-gradient-to-tl from-background via-background to-primary-700/40"
+      className="flex w-full pt-14 md:pt-20 min-h-screen overflow-hidden flex-col justify-around space-y-5 px-4 md:px-10 bg-gradient-to-tl from-background via-background to-primary-300/70 dark:to-primary-700/40"
     >
       <motion.span>
         <motion.h1
@@ -108,10 +114,23 @@ const Pricing = () => {
           className="border-0 mt-5 bg-gradient-to-r from-primary to-primary-600 h-1 w-full"
         />
       </motion.span>
-      <div className="flex flex-wrap gap-6">
+      <motion.div
+        variants={TitleVariants}
+        transition={{
+          duration: 1,
+          delay: 0.4,
+        }}
+        className="flex flex-wrap gap-6"
+      >
         {Object.keys(pricingContent).map((key) => {
-          const { title, cost, mainContent, secondaryContent, recommended } =
-            pricingContent[key];
+          const {
+            title,
+            costCop,
+            costUsd,
+            mainContent,
+            secondaryContent,
+            recommended,
+          } = pricingContent[key];
           return (
             <Card
               key={key}
@@ -133,8 +152,15 @@ const Pricing = () => {
               content={
                 <div className="flex flex-col w-full">
                   <span className="m-auto flex flex-col content-center items-center">
-                    <h4 className="text-4xl text-primary-400 font-bold">{`$ ${cost} COP`}</h4>
-                    <h5 className="text-xl">{t('pricing:monthlyPayment')}</h5>
+                    <p className="text-4xl text-primary-400 font-bold">{`$ ${numberAsCurrency(
+                      costCop,
+                      'COP',
+                    )}`}</p>
+                    <p className="text-2xl text-content font-bold">{`$ ${numberAsCurrency(
+                      costUsd,
+                      'USD',
+                    )}`}</p>
+                    <p className="text-xl">{t('pricing:monthlyPayment')}</p>
                   </span>
                   <hr className="my-5 border-content/20" />
                   <ul className="flex flex-col space-y-1 text-xl text-center">
@@ -162,15 +188,25 @@ const Pricing = () => {
               }
               featured={recommended}
               className={
-                'transition-transform duration-300 ' +
+                'transition-transform duration-300' +
                 (recommended
-                  ? 'scale-100 hover:scale-105'
-                  : 'scale-95 hover:scale-100')
+                  ? ' scale-100 hover:scale-105'
+                  : ' scale-95 hover:scale-100')
               }
             />
           );
         })}
-      </div>
+      </motion.div>
+      <motion.p
+        variants={TitleVariants}
+        transition={{
+          duration: 1,
+          delay: 0.4,
+        }}
+        className="text-lg text-center py-10 px-2 mx-2 border-2 border-content/10 rounded-md shadow-primary-500/20 shadow-md"
+      >
+        {t('pricing:selectAPlan')}
+      </motion.p>
     </motion.section>
   );
 };
