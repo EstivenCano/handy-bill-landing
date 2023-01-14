@@ -2,6 +2,15 @@ import { render, screen } from '@testing-library/react';
 
 import { NavDesktop } from '.';
 
+jest.mock('next/router', () => ({
+  useRouter() {
+    return {
+      pathname: '',
+      query: '',
+    };
+  },
+}));
+
 describe('NavDesktop functionality', () => {
   test('Should render list of NavItems', () => {
     render(<NavDesktop />);

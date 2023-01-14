@@ -3,13 +3,14 @@ import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
-import { lazy } from 'react';
+import { lazy, useEffect, useState } from 'react';
 
 const About = lazy(() => import('sections/About'));
 const Services = lazy(() => import('sections/Services'));
 const HomePage = lazy(() => import('sections/HomePage'));
 const Contact = lazy(() => import('sections/Contact'));
 const Pricing = lazy(() => import('sections/Pricing'));
+const Footer = lazy(() => import('sections/Footer'));
 
 export const getStaticProps: GetStaticProps = async ({
   locale,
@@ -17,17 +18,19 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale || defaultLocale!, [
+      ...(await serverSideTranslations(locale ?? defaultLocale!, [
         'common',
         'about',
         'services',
+        'pricing',
+        'contact',
       ])),
     },
   };
 };
 
 const Home: NextPage = ({
-  locale,
+  _props,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation();
 
@@ -47,6 +50,7 @@ const Home: NextPage = ({
         <Pricing />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 };

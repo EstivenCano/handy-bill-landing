@@ -11,8 +11,8 @@ body {
   :root {
     --accent: 235 183 61;
     --content: 24 24 27;
-    --background: 229 226 226;
-    --foreground: 210 210 210;
+    --background: 255 2255 255;
+    --foreground: 245 245 245;
     --edge: 200 200 200;
     --primary-main: 99 201 158;
     --primary-main-l1: 130 211 177;
@@ -27,14 +27,18 @@ body {
     font-family: Urbanist, system-ui, sans-serif;
     scroll-behavior: smooth;
   }
+
   @import './layout/scrollbar.css';
+  @import './layout/selection.css';
 }
 
 @layer components {
   @import './navigation/navItem.css';
   @import './display/tooltip.css';
   @import './layout/logo.css';
+  @import './layout/icon.css';
   @import './inputs/button.css';
+  @import './inputs/input.css';
   @import './display/typography.css';
 }
 

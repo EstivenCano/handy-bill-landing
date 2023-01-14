@@ -19,6 +19,7 @@ interface Props {
   selected?: string;
   size?: 'small' | 'medium' | 'large';
   title?: string;
+  titleIcon?: ReactNode;
 }
 
 export const Card: FC<Props> = ({
@@ -33,6 +34,7 @@ export const Card: FC<Props> = ({
   selected,
   size = 'medium',
   title,
+  titleIcon,
 }) => {
   const cardSize = match(size)
     .with('small', () => ({ title: 'text-xl md:text-3xl' }))
@@ -53,23 +55,30 @@ export const Card: FC<Props> = ({
 
   const cardFeatured = match(featured)
     .with(true, () => ({
-      card: 'bg-gradient-to-tr from-foreground/80 to-primary/50 scale-105',
+      card: 'bg-gradient-to-tr from-foreground to-primary/50 scale-105',
     }))
     .otherwise(() => ({
-      card: 'bg-gradient-to-tr from-foreground/20 to-primary/20',
+      card: 'bg-gradient-to-tr from-foreground to-primary/30',
     }));
 
   return (
     <motion.article
       layoutId={selected}
-      onClick={onClick}
-      transition={{ duration: 1, delay: delay || 0.2 }}
+      onClick={(e) => {
+        e.stopPropagation();
+        onClick?.();
+      }}
+      transition={{ duration: 0.4, delay: delay || 0.2 }}
       className={`flex overflow-hidden relative flex-grow rounded-xl border-content/10 border-2 ${cardDirection.card} ${cardFeatured.card} ${className}`}
     >
       <CardClose onClose={onClose} />
       <CardImage image={image} className={cardDirection.image} />
       <div className={`flex my-5 px-5 w-full h-fit flex-col overflow-y-auto`}>
-        <CardHeader className={cardSize.title} title={title} />
+        <CardHeader
+          className={cardSize.title}
+          title={title}
+          titleIcon={titleIcon}
+        />
         <CardContent content={content} />
       </div>
     </motion.article>

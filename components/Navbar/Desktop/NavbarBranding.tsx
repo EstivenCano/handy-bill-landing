@@ -7,6 +7,7 @@ export const NavbarBranding = () => {
         src="/images/favicon.ico"
         width={45}
         height={45}
+        priority
         alt="handy-bill-logo"
       />
       <h3 className=" text-base font-bold tracking-wide">Handy Bill</h3>

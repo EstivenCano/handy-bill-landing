@@ -112,7 +112,7 @@ const Services = () => {
       whileInView="onscreen"
       viewport={{ once: true }}
       id="services"
-      className="flex overflow-visible w-full pt-14 md:pt-20 min-h-screen flex-col justify-start space-y-5 px-4 md:px-10 bg-gradient-to-bl from-background via-background to-primary-700/40"
+      className="flex overflow-visible w-full pt-14 md:pt-20 min-h-screen flex-col justify-start space-y-5 px-4 md:px-10 bg-gradient-to-bl from-background via-background to-primary-300/70 dark:to-primary-700/40"
     >
       <motion.span>
         <motion.h1
@@ -150,7 +150,7 @@ const Services = () => {
             whileInView="onscreen"
             variants={CardVariants}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             whileHover={{ scale: 1.05 }}
             layoutId={title}
             className="basis-96 sm:basis-72 cursor-pointer hover:bg-primary-300/20 rounded-lg"
@@ -170,43 +170,42 @@ const Services = () => {
             />
           </motion.li>
         ))}
-        <AnimatePresence>
+        <AnimatePresence mode="sync">
           {selectedId && (
-            <>
-              <motion.div
-                animate={{ opacity: 1 }}
-                initial={{ opacity: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.6 }}
-                className="bg-foreground/95 z-40 fixed p-8 top-0 flex w-screen h-screen"
-              >
-                <Card
-                  title={t(`services:${selectedId}`)}
-                  content={
-                    <div className="space-y-8 flex flex-col flex-wrap overflow-y-auto">
-                      {cardSelected?.content.map((item) => (
-                        <p key={item} className="text-lg">
-                          {t(`services:${item}`)}
-                        </p>
-                      ))}
-                    </div>
-                  }
-                  selected={selectedId}
-                  size="large"
-                  direction="row"
-                  className="m-auto h-5/6 w-5/6 bg-foreground"
-                  onClose={() => setSelectedId(null)}
-                  image={
-                    <Image
-                      src={cardSelected?.image || ''}
-                      layout="fill"
-                      objectFit="cover"
-                      alt={`${selectedId} image`}
-                    />
-                  }
-                />
-              </motion.div>
-            </>
+            <motion.div
+              animate={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              onClick={() => setSelectedId(null)}
+              className="bg-black/80 z-40 fixed p-8 top-0 flex w-screen h-screen"
+            >
+              <Card
+                title={t(`services:${selectedId}`)}
+                content={
+                  <div className="space-y-8 flex flex-col flex-wrap overflow-y-auto">
+                    {cardSelected?.content.map((item) => (
+                      <p key={item} className="text-lg">
+                        {t(`services:${item}`)}
+                      </p>
+                    ))}
+                  </div>
+                }
+                selected={selectedId}
+                size="large"
+                direction="row"
+                className="m-auto h-5/6 w-5/6 bg-foreground max-w-4xl"
+                onClose={() => setSelectedId(null)}
+                image={
+                  <Image
+                    src={cardSelected?.image || ''}
+                    layout="fill"
+                    objectFit="cover"
+                    alt={`${selectedId} image`}
+                  />
+                }
+              />
+            </motion.div>
           )}
         </AnimatePresence>
       </motion.ol>
