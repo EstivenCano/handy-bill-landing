@@ -2,6 +2,7 @@ input:-webkit-autofill {
   box-shadow: 0 0 0 50px theme('colors.foreground/50') inset;
   -webkit-box-shadow: 0 0 0 50px theme('colors.foreground/50') inset;
   -webkit-text-fill-color: theme('colors.content');
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 input:-webkit-autofill:focus {

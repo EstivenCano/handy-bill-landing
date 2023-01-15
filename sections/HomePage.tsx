@@ -13,7 +13,7 @@ const HomePage = () => {
   return (
     <section
       id="home"
-      className="flex w-full min-h-screen overflow-hidden flex-col md:flex-row items-center md:pl-10 py-10 bg-gradient-to-br from-background via-background to-primary-300/70 dark:to-primary-700/40"
+      className="flex w-full min-h-screen overflow-hidden flex-col lg:flex-row items-center md:pl-10 py-10 bg-gradient-to-br from-background via-background to-primary-300/70 dark:to-primary-700/40"
     >
       <div ref={ref} className="flex flex-0 lg:flex-1 justify-center">
         <MainLogo isInViewPort={isInViewPort} />

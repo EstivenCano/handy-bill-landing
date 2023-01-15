@@ -19,13 +19,10 @@ const Contact = () => {
 
   return (
     <motion.section
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: true }}
       id="contact"
-      className="flex w-full pt-14 md:pt-20 min-h-screen overflow-hidden flex-col justify-start space-y-5 px-4 md:px-10 bg-gradient-to-br from-background via-background to-primary-300/70 dark:to-primary-700/40 pb-4"
+      className="flex w-full pt-14 md:pt-20 min-h-screen overflow-hidden flex-col justify-around space-y-5 px-4 md:px-10 bg-gradient-to-br from-background via-background to-primary-300/70 dark:to-primary-700/40 pb-4"
     >
-      <motion.span>
+      <motion.span initial="offscreen" whileInView="onscreen">
         <motion.h1
           variants={TitleVariants}
           transition={{ duration: 1 }}
@@ -57,9 +54,6 @@ const Contact = () => {
         <MessageForm />
         <div className="w-full space-y-5">
           <LocationMap />
-          <h3 className="font-bold text-2xl text-primary-700 dark:text-primary-500">
-            {t('contact:orContactUsSocial')}
-          </h3>
           <SocialLinks />
         </div>
       </motion.div>

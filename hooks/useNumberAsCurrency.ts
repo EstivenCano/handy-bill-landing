@@ -12,7 +12,7 @@ export const useNumberAsCurrency = () => {
     number: number,
     currency: 'COP' | 'USD' = 'USD',
   ) => {
-    return Intl.NumberFormat(locale || 'es-US', {
+    return Intl.NumberFormat(locale || 'en-US', {
       style: 'currency',
       currency: currency,
       maximumFractionDigits: 0,
