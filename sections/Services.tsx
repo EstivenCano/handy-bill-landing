@@ -110,7 +110,6 @@ const Services = () => {
     <motion.section
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true }}
       id="services"
       className="flex overflow-visible w-full pt-14 md:pt-20 min-h-screen flex-col justify-start space-y-5 px-4 md:px-10 bg-gradient-to-bl from-background via-background to-primary-300/70 dark:to-primary-700/40"
     >
@@ -149,8 +148,7 @@ const Services = () => {
             initial="offscreen"
             whileInView="onscreen"
             variants={CardVariants}
-            viewport={{ once: true }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 1, delay: 0.2 }}
             whileHover={{ scale: 1.05 }}
             layoutId={title}
             className="basis-96 sm:basis-72 cursor-pointer hover:bg-primary-300/20 rounded-lg"

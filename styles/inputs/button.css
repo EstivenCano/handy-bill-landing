@@ -3,7 +3,7 @@
 }
 
 .button-primary {
-  @apply button bg-primary-600 hover:bg-primary-600 text-white;
+  @apply button bg-primary-700 hover:bg-primary-600 text-white;
 }
 
 .button-outlined {

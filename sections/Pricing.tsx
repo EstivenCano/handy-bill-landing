@@ -82,7 +82,6 @@ const Pricing = () => {
     <motion.section
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true }}
       id="pricing"
       className="flex w-full pt-14 md:pt-20 min-h-screen overflow-hidden flex-col justify-around space-y-5 px-4 md:px-10 bg-gradient-to-tl from-background via-background to-primary-300/70 dark:to-primary-700/40"
     >
@@ -152,11 +151,11 @@ const Pricing = () => {
               content={
                 <div className="flex flex-col w-full">
                   <span className="m-auto flex flex-col content-center items-center">
-                    <p className="text-4xl text-primary-400 font-bold">{`$ ${numberAsCurrency(
+                    <p className="text-4xl text-primary-400 font-bold">{`${numberAsCurrency(
                       costCop,
                       'COP',
                     )}`}</p>
-                    <p className="text-2xl text-content font-bold">{`$ ${numberAsCurrency(
+                    <p className="text-2xl text-content font-bold">{`${numberAsCurrency(
                       costUsd,
                       'USD',
                     )}`}</p>
@@ -201,7 +200,7 @@ const Pricing = () => {
         variants={TitleVariants}
         transition={{
           duration: 1,
-          delay: 0.4,
+          delay: 0.6,
         }}
         className="text-lg text-center py-10 px-2 mx-2 border-2 border-content/10 rounded-md shadow-primary-500/20 shadow-md"
       >

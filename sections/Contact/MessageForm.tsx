@@ -2,11 +2,32 @@ import { Input } from '@/components/Input';
 import { Snackbar } from '@/components/Snackbar';
 import { Spinner } from '@/components/Spinner';
 import { TextArea } from '@/components/TextArea';
+import { Variants, motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import { FormEvent } from 'react';
 import { match } from 'ts-pattern';
 
 import { useMessageForm } from './useMessageForm';
+
+const FormVariants: Variants = {
+  offscreen: {
+    opacity: 0,
+  },
+  onscreen: {
+    opacity: 1,
+  },
+};
+
+const InputVariants: Variants = {
+  offscreen: {
+    opacity: 0,
+    x: -10,
+  },
+  onscreen: {
+    opacity: 1,
+    x: 0,
+  },
+};
 
 export const MessageForm = () => {
   const { t } = useTranslation();
@@ -19,7 +40,11 @@ export const MessageForm = () => {
 
   return (
     <>
-      <form
+      <motion.form
+        initial="offscreen"
+        whileInView="onscreen"
+        variants={FormVariants}
+        transition={{ duration: 1 }}
         onSubmit={onSubmit}
         className="flex flex-col space-y-5 w-full max-w-xl mx-auto"
       >
@@ -32,7 +57,14 @@ export const MessageForm = () => {
             .otherwise(() => null)}
         </span>
         <hr className="my-5 border-content/20" />
-        <div className="flex flex-col space-y-2">
+        <motion.div
+          variants={InputVariants}
+          transition={{
+            duration: 1,
+            delay: 0.2,
+          }}
+          className="flex flex-col space-y-2"
+        >
           <label htmlFor="name" className="font-bold">
             {t('contact:name')} *
           </label>
@@ -46,8 +78,15 @@ export const MessageForm = () => {
             placeholder={t('contact:namePlaceholder')}
             value={form.name}
           />
-        </div>
-        <div className="flex flex-col space-y-2">
+        </motion.div>
+        <motion.div
+          variants={InputVariants}
+          transition={{
+            duration: 1,
+            delay: 0.4,
+          }}
+          className="flex flex-col space-y-2"
+        >
           <label htmlFor="email" className="font-bold">
             {t('contact:email')} *
           </label>
@@ -60,8 +99,15 @@ export const MessageForm = () => {
             placeholder={t('contact:emailPlaceholder')}
             value={form.email}
           />
-        </div>
-        <div className="flex flex-col space-y-2">
+        </motion.div>
+        <motion.div
+          variants={InputVariants}
+          transition={{
+            duration: 1,
+            delay: 0.6,
+          }}
+          className="flex flex-col space-y-2"
+        >
           <label htmlFor="message" className="font-bold">
             {t('contact:message')} *
           </label>
@@ -75,13 +121,22 @@ export const MessageForm = () => {
             style={{ resize: 'none' }}
             value={form.message}
           />
-        </div>
-        <button type="submit" className="button-outlined" disabled={fetching}>
+        </motion.div>
+        <motion.button
+          variants={InputVariants}
+          transition={{
+            duration: 1,
+            delay: 0.6,
+          }}
+          type="submit"
+          className="button-outlined"
+          disabled={fetching}
+        >
           {match(fetching)
             .with(true, () => t('common:loading'))
             .otherwise(() => t('contact:send'))}
-        </button>
-      </form>
+        </motion.button>
+      </motion.form>
       <Snackbar
         type={response.type}
         message={response.message}

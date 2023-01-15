@@ -43,7 +43,6 @@ const About = () => {
     <motion.section
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true }}
       id="about"
       className="flex w-full pt-14 pb-10 md:pt-16 min-h-screen overflow-hidden flex-col justify-evenly space-y-5 px-4 md:px-10 bg-gradient-to-tr from-background via-background to-primary-300/70 dark:to-primary-700/40"
     >
@@ -80,7 +79,6 @@ const About = () => {
           <motion.li
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true }}
             variants={CardVariants}
             transition={{ duration: 1, delay: index * 0.2 }}
             key={index}
@@ -89,7 +87,6 @@ const About = () => {
             <Card
               content={<p className="text-md">{t(card.content)}</p>}
               title={t(card.title)}
-              delay={index * 0.2}
             />
           </motion.li>
         ))}

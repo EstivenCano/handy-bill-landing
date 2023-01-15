@@ -16,11 +16,11 @@ export const MainLogo: FC<Props> = ({ isInViewPort }) => {
         data-testid="main-container"
         initial={{ scale: 0.85, rotateZ: 0 }}
         animate={{ scale: 1, rotateZ: rotation }}
-        drag="x"
-        dragConstraints={{ left: -50, right: 50 }}
+        drag
+        dragConstraints={{ left: -50, right: 50, top: -50, bottom: 50 }}
         dragSnapToOrigin
-        dragElastic={0.1}
-        dragTransition={{ bounceStiffness: 150, bounceDamping: 10 }}
+        dragElastic={0.5}
+        dragTransition={{ bounceStiffness: 150, bounceDamping: 40 }}
         transition={{ duration: 3, type: 'spring' }}
         className="flex border mt-5 md:mt-0 border-foreground bg-background relative md:w-96 md:h-96 w-80 h-80 shadow-2xl shadow-primary/40 drop-shadow-xl rounded-full hover:cursor-grab hover:active:cursor-grabbing"
       >
