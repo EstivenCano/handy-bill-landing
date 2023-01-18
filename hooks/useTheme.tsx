@@ -5,7 +5,6 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useLayoutEffect,
   useState,
 } from 'react';
 import { match } from 'ts-pattern';
@@ -29,11 +28,11 @@ export const useThemeContext = () => {
   if (!context) {
     throw new Error('useThemeContext used outside ThemeContext provider');
   }
+
   useEffect(() => {
     document.body.classList.value =
       'transition-colors ease-in-out duration-200';
     document.body.classList.add(`theme-${context.theme}`);
-    localStorage.setItem('theme', context.theme);
   }, [context.theme]);
 
   return context;
@@ -54,6 +53,7 @@ export const ThemeProvider: FC<Props> = ({ children }) => {
 
   const handleSetTheme = (value: Theme) => {
     setTheme(value);
+    localStorage.setItem('theme', value);
     match(value)
       .with('dark', () => document.documentElement.classList.add('dark'))
       .otherwise(() => document.documentElement.classList.remove('dark'));
@@ -62,9 +62,13 @@ export const ThemeProvider: FC<Props> = ({ children }) => {
   //Listen any changes on prefers-color-scheme property to change the current theme
   useEffect(() => {
     const darkPreference = window.matchMedia('(prefers-color-scheme: dark)');
-    if (darkPreference.matches) {
+    const storedTheme = localStorage.getItem('theme');
+    if (darkPreference.matches && !storedTheme) {
       handleSetTheme('dark');
+    } else {
+      handleSetTheme(storedTheme as Theme);
     }
+
     darkPreference.addEventListener('change', mqListener);
     return () => darkPreference.removeEventListener('change', mqListener);
   }, [mqListener]);
