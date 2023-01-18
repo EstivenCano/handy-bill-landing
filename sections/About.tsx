@@ -39,6 +39,7 @@ const cardsContent = [
 
 const About = () => {
   const { t } = useTranslation();
+
   return (
     <motion.section
       initial="offscreen"

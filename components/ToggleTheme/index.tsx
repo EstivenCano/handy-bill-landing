@@ -23,7 +23,7 @@ export const ToggleTheme = () => {
         title={match(isDark)
           .with(true, () => t('common:activateLight'))
           .otherwise(() => t('common:activateDark'))}
-        className={`ml-auto w-14 h-9 mt-0 md:mt-2 rounded-full bg-foreground/90 flex p-1 cursor-pointer`}
+        className={`w-14 h-9 border-2 border-primary-700 dark:border-primary-500 rounded-full bg-foreground/90 flex p-0.5 cursor-pointer`}
         onClick={handleToggle}
       >
         <motion.div

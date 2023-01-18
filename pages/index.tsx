@@ -3,7 +3,7 @@ import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
-import { lazy, useEffect, useState } from 'react';
+import { lazy } from 'react';
 
 const About = lazy(() => import('sections/About'));
 const Services = lazy(() => import('sections/Services'));
