@@ -43,7 +43,7 @@ export const ChangeLocale = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative" ref={ref}>
       <Tooltip title={t('common:changeLanguage')} position="bottom">
         <button
           onClick={handleOpenMenu}
@@ -56,7 +56,7 @@ export const ChangeLocale = () => {
       <AnimatePresence>
         {match(isComponentVisible)
           .with(true, () => (
-            <div ref={ref}>
+            <div>
               <motion.ul
                 initial="closed"
                 animate="open"
