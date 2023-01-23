@@ -1,5 +1,7 @@
 import { MainLogo } from '@/components/MainLogo';
 import { ScrollTop } from '@/components/ScrollTop';
+import { motion } from 'framer-motion';
+import { useCurrentSection } from 'hooks/useCurrentSection';
 import { useIsInViewport } from 'hooks/useIsInViewport';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
@@ -9,15 +11,22 @@ const HomePage = () => {
   const { t } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   const isInViewPort = useIsInViewport(ref);
+  const setCurrentSection = useCurrentSection(
+    (state) => state.setCurrentSection,
+  );
 
   return (
-    <section
+    <motion.section
       id="home"
       className="flex w-full min-h-screen overflow-hidden flex-col lg:flex-row items-center md:pl-10 py-10 bg-gradient-to-br from-background via-background to-primary-300/70 dark:to-primary-700/40"
     >
-      <div ref={ref} className="flex flex-0 lg:flex-1 justify-center">
+      <motion.div
+        ref={ref}
+        className="flex flex-0 lg:flex-1 justify-center"
+        onViewportEnter={() => setCurrentSection('home')}
+      >
         <MainLogo isInViewPort={isInViewPort} />
-      </div>
+      </motion.div>
       <div className="flex flex-1 flex-col justify-center items-center py-5 pl-1">
         <h1 className="text-4xl md:text-6xl font-bold mb-3">
           {t('common:handyBill')}
@@ -48,7 +57,7 @@ const HomePage = () => {
         </div>
       </div>
       <ScrollTop show={!isInViewPort} />
-    </section>
+    </motion.section>
   );
 };
 

@@ -1,6 +1,7 @@
 import { Card } from '@/components/Card';
 import { Image } from '@/components/Image';
 import { AnimatePresence, Variants, motion } from 'framer-motion';
+import { useCurrentSection } from 'hooks/useCurrentSection';
 import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 
@@ -97,6 +98,9 @@ const Services = () => {
   const { t } = useTranslation();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const cardSelected = cardContent.find((card) => card.title === selectedId);
+  const setCurrentSection = useCurrentSection(
+    (state) => state.setCurrentSection,
+  );
 
   useEffect(() => {
     if (selectedId) {
@@ -108,12 +112,12 @@ const Services = () => {
 
   return (
     <motion.section
+      id="services"
       initial="offscreen"
       whileInView="onscreen"
-      id="services"
       className="flex overflow-visible w-full pt-14 md:pt-20 min-h-screen flex-col justify-start space-y-5 px-4 md:px-10 bg-gradient-to-bl from-background via-background to-primary-300/70 dark:to-primary-700/40"
     >
-      <motion.span>
+      <motion.span onViewportEnter={() => setCurrentSection('services')}>
         <motion.h1
           variants={TitleVariants}
           transition={{ duration: 1 }}
@@ -148,7 +152,7 @@ const Services = () => {
             initial="offscreen"
             whileInView="onscreen"
             variants={CardVariants}
-            transition={{ duration: 1, delay: 0.2 }}
+            transition={{ duration: 0.4 }}
             whileHover={{ scale: 1.05 }}
             layoutId={title}
             className="basis-96 sm:basis-72 cursor-pointer hover:bg-primary-300/20 rounded-lg"
@@ -168,7 +172,7 @@ const Services = () => {
             />
           </motion.li>
         ))}
-        <AnimatePresence mode="sync">
+        <AnimatePresence>
           {selectedId && (
             <motion.div
               animate={{ opacity: 1 }}
@@ -176,7 +180,7 @@ const Services = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
               onClick={() => setSelectedId(null)}
-              className="bg-black/80 z-40 fixed p-8 top-0 flex w-screen h-screen"
+              className="bg-black/80 z-50 fixed p-8 top-0 flex w-screen h-screen"
             >
               <Card
                 title={t(`services:${selectedId}`)}

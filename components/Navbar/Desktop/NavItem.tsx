@@ -1,3 +1,5 @@
+import { useCurrentSection } from 'hooks/useCurrentSection';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { FC } from 'react';
@@ -8,8 +10,10 @@ interface Props {
 }
 
 export const NavItem: FC<Props> = ({ name, path }) => {
-  const router = useRouter();
-  const isActive = router.query['region'] === path.split('=')[1];
+  const { t } = useTranslation();
+  const currentSection = useCurrentSection((state) => state.currentSection);
+
+  const isActive = currentSection === name;
 
   return (
     <li
@@ -19,7 +23,7 @@ export const NavItem: FC<Props> = ({ name, path }) => {
       }`}
     >
       <Link href={path} aria-current="page">
-        {name}
+        {t(`common:${name}`)}
       </Link>
     </li>
   );
