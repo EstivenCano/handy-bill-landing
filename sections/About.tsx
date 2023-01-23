@@ -1,6 +1,6 @@
 import { Card } from '@/components/Card';
+import { useCurrentSection } from '@/hooks/useCurrentSection';
 import { Variants, motion } from 'framer-motion';
-import { useCurrentSection } from 'hooks/useCurrentSection';
 import { useTranslation } from 'next-i18next';
 
 const TitleVariants: Variants = {

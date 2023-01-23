@@ -1,7 +1,6 @@
-import { useCurrentSection } from 'hooks/useCurrentSection';
+import { useCurrentSection } from '@/hooks/useCurrentSection';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import React, { FC } from 'react';
 
 interface Props {

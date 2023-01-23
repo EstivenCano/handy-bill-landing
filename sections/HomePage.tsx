@@ -1,8 +1,8 @@
 import { MainLogo } from '@/components/MainLogo';
 import { ScrollTop } from '@/components/ScrollTop';
+import { useCurrentSection } from '@/hooks/useCurrentSection';
+import { useIsInViewport } from '@/hooks/useIsInViewport';
 import { motion } from 'framer-motion';
-import { useCurrentSection } from 'hooks/useCurrentSection';
-import { useIsInViewport } from 'hooks/useIsInViewport';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRef } from 'react';

@@ -1,7 +1,7 @@
 import { Card } from '@/components/Card';
+import { useCurrentSection } from '@/hooks/useCurrentSection';
+import { useNumberAsCurrency } from '@/hooks/useNumberAsCurrency';
 import { Variants, motion } from 'framer-motion';
-import { useCurrentSection } from 'hooks/useCurrentSection';
-import { useNumberAsCurrency } from 'hooks/useNumberAsCurrency';
 import { useTranslation } from 'next-i18next';
 import { Fragment } from 'react';
 

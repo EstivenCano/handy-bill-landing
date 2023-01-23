@@ -1,7 +1,7 @@
 import { Card } from '@/components/Card';
 import { Image } from '@/components/Image';
+import { useCurrentSection } from '@/hooks/useCurrentSection';
 import { AnimatePresence, Variants, motion } from 'framer-motion';
-import { useCurrentSection } from 'hooks/useCurrentSection';
 import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 

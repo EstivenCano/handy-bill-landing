@@ -1,5 +1,5 @@
+import { useCurrentSection } from '@/hooks/useCurrentSection';
 import { motion } from 'framer-motion';
-import { useCurrentSection } from 'hooks/useCurrentSection';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import type { FC } from 'react';
