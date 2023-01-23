@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import type { FC } from 'react';
 
 import { Tooltip } from '../Tooltip';
@@ -10,9 +11,10 @@ interface Props {
 
 export const ScrollTop: FC<Props> = ({ show }) => {
   const { t } = useTranslation();
+  const router = useRouter();
 
   const scrollToTop = () => {
-    window.scrollTo(0, 0);
+    router.replace('/?region=home');
   };
 
   return (

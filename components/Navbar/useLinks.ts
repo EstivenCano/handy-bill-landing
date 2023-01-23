@@ -1,9 +1,7 @@
-import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
 export const useLinks = (): Array<{ path: string; name: string }> => {
-  const { t } = useTranslation();
   const router = useRouter();
 
   //Navigate to the selected region on the page when the region query changes
@@ -20,23 +18,23 @@ export const useLinks = (): Array<{ path: string; name: string }> => {
   return [
     {
       path: '/?region=home',
-      name: `${t('common:home')}`,
+      name: 'home',
     },
     {
       path: '/?region=about',
-      name: `${t('common:about')}`,
+      name: 'about',
     },
     {
       path: '/?region=services',
-      name: `${t('common:services')}`,
+      name: 'services',
     },
     {
       path: '/?region=pricing',
-      name: `${t('common:pricing')}`,
+      name: 'pricing',
     },
     {
       path: '/?region=contact',
-      name: `${t('common:contact')}`,
+      name: 'contact',
     },
   ];
 };

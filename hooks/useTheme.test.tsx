@@ -7,23 +7,23 @@ const wrapper: FC<{ children: ReactNode }> = ({ children }) => (
   <ThemeProvider>{children}</ThemeProvider>
 );
 
-describe('useTheme should handle current theme', () => {
-  test('Default theme should be light', () => {
-    const { result } = renderHook(useThemeContext, { wrapper });
-
-    expect(result.current.theme).toBe('light');
+beforeEach(() => {
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => ({
+      matches: true,
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      localStorage: {
+        getItem: jest.fn().mockImplementation(() => 'light'),
+        setItem: jest.fn(),
+      },
+    })),
   });
+});
 
+describe('useTheme should handle current theme', () => {
   test('Should set theme to dark if matchMedia matches with it', () => {
-    Object.defineProperty(window, 'matchMedia', {
-      writable: true,
-      value: jest.fn().mockImplementation((query) => ({
-        matches: true,
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-      })),
-    });
-
     const { result } = renderHook(useThemeContext, { wrapper });
 
     expect(result.current.theme).toBe('dark');

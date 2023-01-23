@@ -1,6 +1,7 @@
+import { useCurrentSection } from '@/hooks/useCurrentSection';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import type { FC } from 'react';
 
 const variants = {
@@ -25,8 +26,11 @@ const variants = {
 };
 
 export const NavItem: FC<{ path: string; name: string }> = ({ path, name }) => {
-  const router = useRouter();
-  const isActive = router.query['region'] === path.split('=')[1];
+  const { t } = useTranslation();
+  const currentSection = useCurrentSection((state) => state.currentSection);
+
+  const isActive = currentSection === name;
+
   return (
     <motion.li
       className={`text-base font-bold my-3 before:border-l-2 before:mr-2 before:border-l-primary-700 ${
@@ -37,7 +41,7 @@ export const NavItem: FC<{ path: string; name: string }> = ({ path, name }) => {
       whileTap={{ scale: 0.95 }}
     >
       <Link href={path} aria-current="page">
-        {name}
+        {t(`common:${name}`)}
       </Link>
     </motion.li>
   );

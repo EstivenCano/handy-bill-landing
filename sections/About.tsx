@@ -1,4 +1,5 @@
 import { Card } from '@/components/Card';
+import { useCurrentSection } from '@/hooks/useCurrentSection';
 import { Variants, motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 
@@ -39,14 +40,18 @@ const cardsContent = [
 
 const About = () => {
   const { t } = useTranslation();
+  const setCurrentSection = useCurrentSection(
+    (state) => state.setCurrentSection,
+  );
+
   return (
     <motion.section
+      id="about"
       initial="offscreen"
       whileInView="onscreen"
-      id="about"
       className="flex w-full pt-14 pb-10 md:pt-16 min-h-screen overflow-hidden flex-col justify-evenly space-y-5 px-4 md:px-10 bg-gradient-to-tr from-background via-background to-primary-300/70 dark:to-primary-700/40"
     >
-      <span>
+      <motion.span onViewportEnter={() => setCurrentSection('about')}>
         <motion.h1
           variants={TitleVariants}
           transition={{ duration: 1 }}
@@ -73,7 +78,7 @@ const About = () => {
           transition={{ duration: 1, delay: 0.2 }}
           className="border-0 mt-5 bg-gradient-to-r from-primary to-primary-600 h-1 w-full"
         />
-      </span>
+      </motion.span>
       <motion.ol className="flex lg:flex-row flex-col m-auto space-y-5 lg:space-y-0 lg:space-x-5">
         {cardsContent.map((card, index) => (
           <motion.li

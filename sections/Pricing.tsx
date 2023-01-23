@@ -1,6 +1,7 @@
 import { Card } from '@/components/Card';
+import { useCurrentSection } from '@/hooks/useCurrentSection';
+import { useNumberAsCurrency } from '@/hooks/useNumberAsCurrency';
 import { Variants, motion } from 'framer-motion';
-import { useNumberAsCurrency } from 'hooks/useNumberAsCurrency';
 import { useTranslation } from 'next-i18next';
 import { Fragment } from 'react';
 
@@ -78,14 +79,18 @@ const pricingContent: Record<string, PricingContent> = {
 const Pricing = () => {
   const { t } = useTranslation();
   const { numberAsCurrency } = useNumberAsCurrency();
+  const setCurrentSection = useCurrentSection(
+    (state) => state.setCurrentSection,
+  );
+
   return (
     <motion.section
+      id="pricing"
       initial="offscreen"
       whileInView="onscreen"
-      id="pricing"
       className="flex w-full pt-14 md:pt-20 min-h-screen overflow-hidden flex-col justify-around space-y-5 px-4 md:px-10 bg-gradient-to-tl from-background via-background to-primary-300/70 dark:to-primary-700/40"
     >
-      <motion.span>
+      <motion.span onViewportEnter={() => setCurrentSection('pricing')}>
         <motion.h1
           variants={TitleVariants}
           transition={{ duration: 1 }}

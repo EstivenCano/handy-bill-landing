@@ -1,3 +1,4 @@
+import { useCurrentSection } from '@/hooks/useCurrentSection';
 import { Variants, motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 
@@ -16,13 +17,20 @@ const TitleVariants: Variants = {
 
 const Contact = () => {
   const { t } = useTranslation();
+  const setCurrentSection = useCurrentSection(
+    (state) => state.setCurrentSection,
+  );
 
   return (
     <motion.section
       id="contact"
       className="flex w-full pt-14 md:pt-20 min-h-screen overflow-hidden flex-col justify-around space-y-5 px-4 md:px-10 bg-gradient-to-br from-background via-background to-primary-300/70 dark:to-primary-700/40 pb-4"
     >
-      <motion.span initial="offscreen" whileInView="onscreen">
+      <motion.span
+        initial="offscreen"
+        whileInView="onscreen"
+        onViewportEnter={() => setCurrentSection('contact')}
+      >
         <motion.h1
           variants={TitleVariants}
           transition={{ duration: 1 }}
