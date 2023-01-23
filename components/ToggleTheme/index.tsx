@@ -28,6 +28,9 @@ export const ToggleTheme = () => {
       >
         <motion.div
           className="w-7 h-7 rounded-full p-1 bg-primary-600 md:mr-8"
+          initial={{
+            x: isDark ? 20 : 0,
+          }}
           animate={{
             x: isDark ? 20 : 0,
           }}
