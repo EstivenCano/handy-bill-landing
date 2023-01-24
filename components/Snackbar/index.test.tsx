@@ -5,7 +5,7 @@ import { Snackbar } from '.';
 describe('Snackbar functionality', () => {
   test('It should display correct content when is open an it has success property', async () => {
     render(
-      <Snackbar isOpen={true} message="test" type="success" timeout={100} />,
+      <Snackbar isOpen={true} message="test" type="success" timeout={50} />,
     );
 
     await waitFor(() => expect(screen.getByRole('alert')).toBeVisible());
@@ -21,9 +21,7 @@ describe('Snackbar functionality', () => {
   });
 
   test('It should display correct content when is open an it has error property', async () => {
-    render(
-      <Snackbar isOpen={true} message="test" type="error" timeout={100} />,
-    );
+    render(<Snackbar isOpen={true} message="test" type="error" timeout={50} />);
     await waitFor(() => expect(screen.getByRole('alert')).toBeVisible());
 
     expect(screen.getByText('test')).toBeVisible();
@@ -38,7 +36,7 @@ describe('Snackbar functionality', () => {
 
   test('It should display correct content when is open an it has warning property', async () => {
     render(
-      <Snackbar isOpen={true} message="test" type="warning" timeout={100} />,
+      <Snackbar isOpen={true} message="test" type="warning" timeout={50} />,
     );
     await waitFor(() => expect(screen.getByRole('alert')).toBeVisible());
 
@@ -53,7 +51,7 @@ describe('Snackbar functionality', () => {
   });
 
   test('It should display correct content when is open an it has info property', async () => {
-    render(<Snackbar isOpen={true} message="test" type="info" timeout={100} />);
+    render(<Snackbar isOpen={true} message="test" type="info" timeout={50} />);
     await waitFor(() => expect(screen.getByRole('alert')).toBeVisible());
 
     expect(screen.getByText('test')).toBeVisible();
