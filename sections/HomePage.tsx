@@ -1,19 +1,22 @@
 import { MainLogo } from '@/components/MainLogo';
 import { ScrollTop } from '@/components/ScrollTop';
 import { useCurrentSection } from '@/hooks/useCurrentSection';
-import { useIsInViewport } from '@/hooks/useIsInViewport';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import { useRef } from 'react';
+import { useState } from 'react';
 
 const HomePage = () => {
   const { t } = useTranslation();
-  const ref = useRef<HTMLDivElement>(null);
-  const isInViewPort = useIsInViewport(ref);
+  const [isInViewPort, setIsInViewPort] = useState(false);
+
   const setCurrentSection = useCurrentSection(
     (state) => state.setCurrentSection,
   );
+
+  const handleIsInViewport = () => {
+    setIsInViewPort((prevState) => !prevState);
+  };
 
   return (
     <motion.section
@@ -21,9 +24,14 @@ const HomePage = () => {
       className="flex w-full min-h-screen overflow-hidden flex-col lg:flex-row items-center md:pl-10 py-10 bg-gradient-to-br from-background via-background to-primary-300/70 dark:to-primary-700/40"
     >
       <motion.div
-        ref={ref}
         className="flex flex-0 lg:flex-1 justify-center"
-        onViewportEnter={() => setCurrentSection('home')}
+        onViewportEnter={() => {
+          setCurrentSection('home');
+          handleIsInViewport();
+        }}
+        onViewportLeave={() => {
+          handleIsInViewport();
+        }}
       >
         <MainLogo isInViewPort={isInViewPort} />
       </motion.div>
