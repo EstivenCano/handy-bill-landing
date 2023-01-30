@@ -8,9 +8,15 @@ interface Props {
   message: string;
   isOpen: boolean;
   type: Status;
+  timeout?: number;
 }
 
-export const Snackbar: FC<Props> = ({ message, isOpen, type }) => {
+export const Snackbar: FC<Props> = ({
+  message,
+  isOpen,
+  type,
+  timeout = 5000,
+}) => {
   const [open, setOpen] = useState(isOpen);
   const { t } = useTranslation();
 
@@ -30,10 +36,10 @@ export const Snackbar: FC<Props> = ({ message, isOpen, type }) => {
 
     const timer = setTimeout(() => {
       setOpen(false);
-    }, 5000);
+    }, timeout);
 
     return () => clearTimeout(timer);
-  }, [isOpen]);
+  }, [isOpen, timeout]);
 
   return (
     <AnimatePresence>

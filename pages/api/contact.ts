@@ -4,20 +4,20 @@ import { match } from 'ts-pattern';
 
 require('dotenv').config();
 
-const transporter = nodemailer.createTransport({
-  port: 465,
-  host: 'smtp.gmail.com',
-  auth: {
-    user: process.env.email,
-    pass: process.env.node_password,
-  },
-  secure: true,
-});
-
 export default async function contact(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
+  const transporter = nodemailer.createTransport({
+    port: 465,
+    host: 'smtp.gmail.com',
+    auth: {
+      user: process.env.email,
+      pass: process.env.node_password,
+    },
+    secure: true,
+  });
+
   const mailData = {
     from: req.body.name,
     to: process.env.email,
@@ -34,8 +34,7 @@ export default async function contact(
         return res
           .status(200)
           .send({ success: true, message: 'form.response.200' });
-      } catch (err: any) {
-        console.error(err);
+      } catch (err: unknown) {
         return res
           .status(400)
           .send({ success: false, message: 'form.response.400' });

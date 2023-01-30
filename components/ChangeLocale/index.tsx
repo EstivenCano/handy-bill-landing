@@ -1,8 +1,8 @@
+import { useComponentVisible } from '@/hooks/useComponentVisible';
+import { LaguangeIcon } from '@/public/icons/LanguageIcon';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useComponentVisible } from 'hooks/useComponentVisible';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import { LaguangeIcon } from 'public/icons/LanguageIcon';
 import { match } from 'ts-pattern';
 
 import { Tooltip } from '../Tooltip';
